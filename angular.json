@@ -25,8 +25,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "node_modules/tailwindcss/dist/tailwind.css"
+              
+              "src/styles.css"
+              
             ],
             "scripts": []
           },
