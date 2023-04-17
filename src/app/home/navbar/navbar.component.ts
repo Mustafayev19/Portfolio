@@ -1,10 +1,16 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-navbar',
+  selector: 'navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
+  isclicked:boolean=true
+
+  clicked() {
+    this.isclicked = !this.isclicked;
+  }
+  
 
 }

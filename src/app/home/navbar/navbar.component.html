@@ -1,1 +1,30 @@
-<p>navbar works!</p>
+<!-- Header -->
+<header
+    class=" py-1 sm:py-2 md:py-4 bg-blue1 font-mainFont font-medium tracking-wide text-cyan-400 uppercase  flex justify-center border-b-2 rounded-full border-indigo-500/75  shadow-lg shadow-indigo-500/50">
+    <!-- Container -->
+    <div class="container mx-24 p-2 border-b border-t rounded-full border-indigo-500/75 shadow-lg  justify-between">
+        <!-- Menu -->
+        <nav class=" h-4  md:px-12  md:h-16 flex justify-center items-center  ">
+            <!-- left-side -->
+            <div class="p-1 md:p-2 h-6  md:h-12 gap-1 ms:gap-2 md:gap-8 border-y rounded-md border-indigo-500/75 flex justify-center  opacity-0 transition duration-1000"
+                [ngClass]="{'opacity-100':isclicked}">
+                <a class="   text-xs   md:text-base   p-1   hover:text-cyan-200 hover:scale-x-110  transition duration-500"
+                    href="#">Experience</a>
+                <a class="   text-xs   md:text-base   p-1  hover:text-cyan-200  hover:scale-x-110  md:underline-offset-4 transition duration-500"
+                    href="#">Projects</a>
+            </div>
+            <!-- Logo -->
+            <div class="p-1 sm:p-1 md:p-6  border rounded-full border-indigo-500/75" (click)="clicked()">
+                <a class="" (click)="$event.preventDefault()" href=""><i class="p-4 cursor-pointer">MM</i></a>
+            </div>
+            <!-- Right-side -->
+            <div class="p-1 md:p-2 h-6  md:h-12 gap-1 ms:gap-2 md:gap-8  border-y rounded-md border-indigo-500/75 flex justify-center  opacity-0 transition duration-1000"
+                [ngClass]="{'opacity-100':isclicked}">
+                <a class="text-xs   md:text-base  p-1 whitespace-nowrap hover:text-cyan-200  hover:scale-x-110   md:underline-offset-4 transition duration-500"
+                    href="#">About me</a>
+                <a class="text-xs   md:text-base  p-1 whitespace-nowrap hover:text-cyan-200  hover:scale-x-110   md:underline-offset-4 transition duration-500"
+                    href="#">Contact me</a>
+            </div>
+        </nav>
+    </div>
+</header>
