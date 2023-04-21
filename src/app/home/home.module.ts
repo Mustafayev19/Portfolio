@@ -7,15 +7,17 @@ import { AboutComponent } from './about/about.component';
 import { ExperienceComponent } from './experience/experience.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { FooterContactComponent } from './footer-contact/footer-contact.component';
-
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
   declarations: [HomeComponent, NavbarComponent, AboutComponent, ExperienceComponent, ProjectsComponent, FooterContactComponent],
   imports: [
     BrowserModule,
-    CommonModule
+    CommonModule,
+    MatIconModule,
+    
   ],
-  exports:[HomeComponent]
+  exports:[HomeComponent,NavbarComponent]
 })
 export class HomeModule { }

@@ -4,10 +4,29 @@ module.exports = {
     "./src/**/*.{html,ts}",
   ],
   theme: {
+    screens: {
+
+      'sms':'460px',
+      
+      'sm': '640px',
+
+      'md': '768px',
+
+      'mds':'820px',
+
+      'mdx':'960px',
+
+      'lg': '1024px',
+
+      'xl': '1280px',
+
+      '2xl': '1536px'
+
+    },
     extend: {
       fontFamily: {
-        mainFont: ['Manrope', 'sans-serif'],
-        secondFont: ['DynaPuff', 'cursive']
+        mainFont: ['Gemunu Libre'],
+        secondFont: ['Kanit', 'sans-serif']
       },
       colors: {
         'blue1': '#0b132bff',
@@ -18,7 +37,7 @@ module.exports = {
         'white1': '#fbfffe'
       },
       fontSize: {
-        xs:'0.4rem',
+        xs: '0.3rem',
         sm: '0.8rem',
         base: '1rem',
         xl: '1.25rem',
