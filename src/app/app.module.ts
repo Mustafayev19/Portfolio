@@ -7,6 +7,7 @@ import { HomeModule } from './home/home.module';
 
 
 
+
 @NgModule({
   
   declarations: [
@@ -17,6 +18,7 @@ import { HomeModule } from './home/home.module';
     BrowserModule,
     AppRoutingModule,
     HomeModule,
+   
     
   ],
   providers: [],

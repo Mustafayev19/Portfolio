@@ -8,6 +8,7 @@ import { ExperienceComponent } from './experience/experience.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { FooterContactComponent } from './footer-contact/footer-contact.component';
 import { MatIconModule } from '@angular/material/icon';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -16,8 +17,9 @@ import { MatIconModule } from '@angular/material/icon';
     BrowserModule,
     CommonModule,
     MatIconModule,
+    RouterModule
     
   ],
-  exports:[HomeComponent,NavbarComponent]
+  exports:[HomeComponent, NavbarComponent, AboutComponent, ExperienceComponent, ProjectsComponent, FooterContactComponent]
 })
 export class HomeModule { }
