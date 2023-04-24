@@ -11,6 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 
 
+
 @NgModule({
   declarations: [HomeComponent, NavbarComponent, AboutComponent, ExperienceComponent, ProjectsComponent, FooterContactComponent],
   imports: [
@@ -20,6 +21,7 @@ import { RouterModule } from '@angular/router';
     RouterModule
     
   ],
+  providers:[],
   exports:[HomeComponent, NavbarComponent, AboutComponent, ExperienceComponent, ProjectsComponent, FooterContactComponent]
 })
 export class HomeModule { }
