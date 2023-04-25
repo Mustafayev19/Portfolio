@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FooterContactComponent } from './footer-contact.component';
+import { FooterContactComponent } from './contact.component';
 
 describe('FooterContactComponent', () => {
   let component: FooterContactComponent;

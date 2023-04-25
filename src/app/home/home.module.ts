@@ -6,22 +6,24 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AboutComponent } from './about/about.component';
 import { ExperienceComponent } from './experience/experience.component';
 import { ProjectsComponent } from './projects/projects.component';
-import { FooterContactComponent } from './footer-contact/footer-contact.component';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { ContactComponent } from './contact/contact.component';
 
 
 
 @NgModule({
-  declarations: [HomeComponent, NavbarComponent, AboutComponent, ExperienceComponent, ProjectsComponent, FooterContactComponent],
+  declarations: [HomeComponent, NavbarComponent, AboutComponent, ExperienceComponent, ProjectsComponent, ContactComponent],
   imports: [
     BrowserModule,
     CommonModule,
     MatIconModule,
-    RouterModule
+    RouterModule,
+    FormsModule
     
   ],
   providers:[],
-  exports:[HomeComponent, NavbarComponent, AboutComponent, ExperienceComponent, ProjectsComponent, FooterContactComponent]
+  exports:[HomeComponent, NavbarComponent, AboutComponent, ExperienceComponent, ProjectsComponent,ContactComponent]
 })
 export class HomeModule { }

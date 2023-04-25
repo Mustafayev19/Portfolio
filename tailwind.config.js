@@ -29,6 +29,7 @@ module.exports = {
         secondFont: ['Kanit', 'sans-serif']
       },
       colors: {
+        'colorform':'#394867',
         'blue1': '#0b132bff',
         'blue2': '#1c2541ff',
         'blue3': '#3a506bff',
