@@ -4,17 +4,29 @@ module.exports = {
     "./src/**/*.{html,ts}",
   ],
   theme: {
+    fontSize: {
+      sms: "0.5rem",
+      sm: '0.8rem',
+      base: '1rem',
+      xl: '1.25rem',
+      '2xl': '1.563rem',
+      '3xl': '1.953rem',
+      '4xl': '2.441rem',
+      '5xl': '3.052rem',
+    },
     screens: {
 
-      'sms':'460px',
-      
+      'sms': '400px',
+
+      'smsx': '500px',
+
       'sm': '640px',
 
       'md': '768px',
 
-      'mds':'820px',
+      'mds': '820px',
 
-      'mdx':'960px',
+      'mdx': '960px',
 
       'lg': '1024px',
 
@@ -29,7 +41,7 @@ module.exports = {
         secondFont: ['Kanit', 'sans-serif']
       },
       colors: {
-        'colorform':'#394867',
+        'colorform': '#394867',
         'blue1': '#0b132bff',
         'blue2': '#1c2541ff',
         'blue3': '#3a506bff',
