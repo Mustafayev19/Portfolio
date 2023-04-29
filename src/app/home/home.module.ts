@@ -21,9 +21,9 @@ import { ContactComponent } from './contact/contact.component';
     MatIconModule,
     RouterModule,
     FormsModule
-    
+
   ],
-  providers:[],
-  exports:[HomeComponent, NavbarComponent, AboutComponent, ExperienceComponent, ProjectsComponent,ContactComponent]
+  providers: [],
+  exports: [HomeComponent, NavbarComponent, AboutComponent, ExperienceComponent, ProjectsComponent, ContactComponent]
 })
 export class HomeModule { }

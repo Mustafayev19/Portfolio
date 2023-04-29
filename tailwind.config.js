@@ -36,6 +36,13 @@ module.exports = {
 
     },
     extend: {
+      keyframes: {
+
+      },
+      animation: {
+
+
+      },
       fontFamily: {
         mainFont: ['Gemunu Libre'],
         secondFont: ['Kanit', 'sans-serif']

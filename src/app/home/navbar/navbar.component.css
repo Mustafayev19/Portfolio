@@ -1,0 +1,23 @@
+header::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 50%;
+    height: 5px;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 80%, rgba(255, 255, 255, 0) 100%);
+    animation: headerBorderAnimation 6s infinite;
+}
+
+@keyframes headerBorderAnimation {
+    from {
+        left: -120%;
+        opacity: 0.8
+    }
+
+    to {
+        left: 120%;
+        opacity: 0.1;
+
+    }
+}
