@@ -7,40 +7,65 @@
         <form
             class="  mt-12 sm:mt-16 md:mt-36 w-auto h-max border-y-2 border-indigo-500 shadow-xl shadow-indigo-500/50 rounded-2xl grid grid-cols-2 gap-2 sm:gap-4 md:gap-6">
             <!-- header -->
-            <h1 class="m-1 leading-4 md:leading-8 font-mainFont text-base sm:text-xl md:text-2xl text-center col-span-2 ">CONTACT ME</h1>
+            <h1
+                class="m-1 leading-4 md:leading-8 font-mainFont text-base sm:text-xl md:text-2xl text-center col-span-2 ">
+                CONTACT ME</h1>
             <!-- form content -->
             <!-- input-1 -->
-            <div class="h-10 sm:h-12 md:h-14 w-44 sm:w-60 md:w-72 p-1 md:p-2">
+            <div class="h-10 sm:h-12 md:h-14 w-44 sm:w-60 md:w-72 p-1 md:p-2 relative">
                 <input
                     class="h-full w-full bg-colorform border-y-2 rounded-lg border-indigo-700 focus:outline-none focus:ring-2 ring-indigo-500 placeholder:text-sm placeholder:md:text-base"
-                    autocomplete="off" type="text" name="fullName" placeholder=" please enter your full name"
-                    #name=ngModel [(ngModel)]="fullName" required>
+                    autocomplete="off" type="text" name="Name" placeholder="Please enter your full name" #name="ngModel"
+                    [(ngModel)]="Name" required pattern="[A-Za-zğüşıöçĞÜŞİÖÇ\s]+" maxlength="40" minlength="3"
+                    (change)="log(name)">
+                <div class="absolute left-4 top-[-16px]   p-[2px] text-red-700" *ngIf="name.invalid&&name.touched">
+                    <p *ngFor="let error of getErrorsMessages(name)">{{error}}</p>
+                </div>
+                <div class="absolute left-4 bottom-[-16px]   p-[2px] text-red-700" *ngIf="name.invalid&&name.touched">
+                    <p *ngIf="name.hasError('minlength')">minimum 3 chracter</p>
+                </div>
             </div>
+
             <!-- input-2 -->
-            <div class="h-10 sm:h-12 md:h-14 w-44 sm:w-60 md:w-72 p-1 md:p-2">
+            <div class="relative h-10 sm:h-12 md:h-14 w-44 sm:w-60 md:w-72 p-1 md:p-2">
                 <input
                     class="h-full w-full bg-colorform   border-y-2 rounded-lg border-indigo-700 focus:outline-none focus:ring-2 ring-indigo-500  placeholder:text-sm placeholder:md:text-base"
-                    autocomplete="off" type="text" name="emailAdress" placeholder=" email adress" #name=ngModel
-                    [(ngModel)]="emailAdress" required>
+                    autocomplete="off" type="text" name="emailAdress" placeholder=" email adress" #email=ngModel
+                    [(ngModel)]="emailAdress" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" maxlength="50">
+                <div class="absolute left-4 top-[-16px]   p-[2px] text-red-700 " *ngIf="email.invalid&&email.touched">
+                    <p *ngFor="let error of getErrorsMessages(email)">{{error}}</p>
+                </div>
+
             </div>
             <!-- input-3 -->
-            <div class="h-10 sm:h-12 md:h-14 w-44 sm:w-60 md:w-72 p-1 md:p-2">
+            <div class="relative h-10 sm:h-12 md:h-14 w-44 sm:w-60 md:w-72 p-1 md:p-2">
                 <input
                     class="h-full w-full bg-colorform border-y-2 rounded-lg border-indigo-700 focus:outline-none focus:ring-2 ring-indigo-500  placeholder:text-sm placeholder:md:text-base"
-                    autocomplete="off" type="text" name="mobileNumber" placeholder=" mobile number" #name=ngModel
-                    [(ngModel)]="mobileNumber" required>
+                    autocomplete="off" type="text" name="mobileNumber" placeholder=" mobile number" #number=ngModel
+                    [(ngModel)]="mobileNumber" required minlength="10" maxlength="24" pattern="[0-9]*">
+                <div class="absolute left-4 top-[-16px]   p-[2px] text-red-700" *ngIf="number.invalid&&number.touched">
+                    <p *ngFor="let error of getErrorsMessages(number)">{{error}}</p>
+                </div>
+                <div class="absolute left-4 bottom-[-16px]   p-[2px] text-red-700"
+                    *ngIf="number.invalid&&number.touched">
+                    <p *ngIf="number.hasError('minlength')">minimum 3 chracter</p>
+                </div>
             </div>
             <!-- input-4 -->
-            <div class="h-10 sm:h-12 md:h-14 w-44 sm:w-60 md:w-72 p-1 md:p-2">
+            <div class="relative h-10 sm:h-12 md:h-14 w-44 sm:w-60 md:w-72 p-1 md:p-2">
                 <input
                     class="h-full w-full bg-colorform border-y-2 rounded-lg border-indigo-700 focus:outline-none focus:ring-2 ring-indigo-500  placeholder:text-sm placeholder:md:text-base"
-                    autocomplete="off" type="text" name="emailSubject" placeholder=" email subject" #name=ngModel
-                    [(ngModel)]="emailSubject" required>
+                    autocomplete="off" type="text" name="emailSubject" placeholder=" email subject"
+                    #emailsubject=ngModel [(ngModel)]="emailSubject" required>
+                <div class="absolute left-4 top-[-16px]   p-[2px] text-red-700"
+                    *ngIf="emailsubject.invalid&&emailsubject.touched">
+                    <p *ngFor="let error of getErrorsMessages(emailsubject)">{{error}}</p>
+                </div>
             </div>
             <!-- input-5 -->
             <div class="h-20 w-auto p-1 md:p-2 col-span-2 z-10  ">
                 <textarea id="about" name="about" rows="3" autocomplete="off" placeholder=" your message"
-                    #name="ngModel" [(ngModel)]="emailMessage"
+                    #name="ngModel" [(ngModel)]="emailMessage" required
                     class=" w-full py-1.5 bg-colorform border-y-2 rounded-lg border-indigo-700 focus:outline-none focus:ring-2 ring-indigo-500  placeholder:text-sm placeholder:md:text-base "></textarea>
             </div>
             <!-- button -->
@@ -49,16 +74,4 @@
                     class="text-sms sm:text-sm md:text-base h-auto w-auto border rounded-lg border-indigo-600 shadow-sm hover:shadow-indigo-500 focus:ring-2  m-1 p-1"
                     type="submit">Send message </button>
             </div>
-
-
-
         </form>
-
-
-
-
-    </div>
-
-
-
-</div>
