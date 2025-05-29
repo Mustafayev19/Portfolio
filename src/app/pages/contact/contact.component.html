@@ -1,0 +1,75 @@
+<div
+  class="min-h-screen text-white flex flex-col items-center justify-start p-4 sm:p-6 md:p-12 backdrop-blur-md overflow-y-auto"
+>
+  <button
+    (click)="goBackToHome()"
+    aria-label="Go back to homepage"
+    class="fixed top-4 left-4 sm:top-6 sm:left-6 z-50 p-2 rounded-full text-yellow-400 hover:bg-yellow-400/20 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-50 transition-colors duration-200"
+  >
+    <img class="h-7 w-7 sm:h-8 sm:w-8" src="icons/arrow.svg" alt="back arrow" />
+  </button>
+
+  <div
+    class="max-w-3xl w-full text-center space-y-8 md:space-y-10 py-10 sm:py-12 px-2"
+  >
+    <section class="animate-me">
+      <h1
+        class="text-3xl sm:text-4xl md:text-5xl font-bold text-yellow-400 mb-6 sm:mb-8"
+      >
+        {{ pageTitle }}
+      </h1>
+      <p
+        class="text-md sm:text-lg text-gray-300 leading-relaxed max-w-xl mx-auto"
+      >
+        {{ contactIntro }}
+      </p>
+    </section>
+
+    <section class="animate-me">
+      <hr class="border-yellow-500/30 w-1/2 mx-auto my-8 md:my-10" />
+    </section>
+
+    <section class="animate-me">
+      <h2 class="text-2xl sm:text-3xl font-semibold text-gray-100 mb-4">
+        Direct Email
+      </h2>
+      <a
+        href="mailto:{{ emailAddress }}"
+        class="text-yellow-300 hover:text-yellow-200 text-xl sm:text-2xl font-medium transition-colors duration-200 inline-flex items-center group"
+      >
+        <img
+          class="w-6 h-6 mr-2.5 transition-transform duration-300 group-hover:scale-110"
+          src="icons/email.svg"
+          alt="email icon"
+        />
+        {{ emailAddress }}
+      </a>
+    </section>
+
+    @if (socialLinks.length > 0) {
+    <section>
+      <hr class="border-yellow-500/30 w-1/2 mx-auto my-8 md:my-10" />
+      <h2 class="text-2xl sm:text-3xl font-semibold text-gray-100 mb-6">
+        Find me on
+      </h2>
+      <div class="flex justify-center items-center space-x-6 sm:space-x-8">
+        @for (link of socialLinks; track link.name) {
+        <a
+          href="{{ link.url }}"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="{{ link.name }}"
+          class="text-gray-400 hover:text-yellow-400 transition-all duration-300 transform hover:scale-110"
+        >
+          @if (link.img) {
+          <img src="{{ link.img }}" alt="" />
+          } @else {
+          <span class="text-lg">{{ link.name }}</span>
+          }
+        </a>
+        }
+      </div>
+    </section>
+    }
+  </div>
+</div>

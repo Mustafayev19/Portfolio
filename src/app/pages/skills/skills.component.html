@@ -1,0 +1,64 @@
+<div
+  class="min-h-screen text-white flex flex-col items-center justify-start p-4 sm:p-6 md:p-12 backdrop-blur-md overflow-y-auto"
+>
+  <button
+    (click)="goBackToHome()"
+    aria-label="Go back to homepage"
+    class="fixed top-4 left-4 sm:top-6 sm:left-6 z-50 p-2 rounded-full text-yellow-400 hover:bg-yellow-400/20 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-50 transition-colors duration-200"
+  >
+    <img class="h-7 w-7 sm:h-8 sm:w-8" src="icons/arrow.svg" alt="back arrow" />
+  </button>
+
+  <div class="max-w-4xl w-full space-y-10 md:space-y-12 py-10 sm:py-12 px-2">
+    <section class="text-center animate-me">
+      <h1
+        class="text-3xl sm:text-4xl md:text-5xl font-bold text-yellow-400 mb-8 sm:mb-10"
+      >
+        {{ pageTitle }}
+      </h1>
+    </section>
+
+    @for (category of skillCategories; track category.name; let i = $index; let
+    isLast = $last) {
+    <section class="animate-me">
+      <h2
+        class="text-2xl sm:text-3xl font-semibold text-center text-yellow-300 mb-6 sm:mb-8 border-b-2 border-yellow-500/30 pb-3 w-max mx-auto"
+      >
+        {{ category.name }}
+      </h2>
+
+      <div
+        class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-5 md:gap-6 text-center"
+      >
+        @for (skill of category.skills; track skill.name) {
+        <div
+          class="skill-card bg-gray-800/60 p-4 rounded-xl shadow-lg hover:shadow-yellow-400/30 transform hover:scale-105 transition-all duration-300 flex flex-col items-center justify-start min-h-[130px] sm:min-h-[150px]"
+        >
+          @if (skill.icon) {
+          <img
+            src="{{ skill.icon }}"
+            alt="{{ skill.name }} icon"
+            class="w-10 h-10 sm:w-12 sm:h-12 mb-2.5"
+          />
+          }
+          <span class="text-md sm:text-lg font-semibold text-gray-100">{{
+            skill.name
+          }}</span>
+          @if (skill.level) {
+          <span class="text-xs sm:text-sm text-yellow-400/80 mt-1">{{
+            skill.level
+          }}</span>
+          } @if (skill.description) {
+          <p class="text-xs text-gray-400 mt-1.5 px-1">
+            {{ skill.description }}
+          </p>
+          }
+        </div>
+        }
+      </div>
+    </section>
+    @if (!isLast) {
+    <hr class="border-yellow-500/20 w-1/2 mx-auto my-8 md:my-10" />
+    } }
+  </div>
+</div>
