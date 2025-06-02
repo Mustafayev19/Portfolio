@@ -113,6 +113,7 @@ import {
   ],
 })
 export class AppComponent implements OnInit, OnDestroy {
+  title = 'Mobil Mustafayev';
   isHomePage = true;
   isMobileMenuOpen: boolean = false;
   private destroy$ = new Subject<void>();

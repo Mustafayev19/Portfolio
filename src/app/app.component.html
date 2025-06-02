@@ -4,6 +4,8 @@
     [autoplay]="true"
     [muted]="true"
     [loop]="true"
+    preload="auto"
+    playsinline
   >
     <source src="/videos/main.mp4" type="video/mp4" />
   </video>
@@ -225,7 +227,7 @@
         <p
           class="text-2xl sm:text-3xl font-bold text-yellow-400 drop-shadow-md tracking-wide"
         >
-          Mobil Mustafayev
+          {{ title }}
         </p>
         <p
           id="typingText"
