@@ -10,6 +10,112 @@
   </video>
 
   <div class="relative z-20">
+    <button
+      (click)="toggleMobileMenu()"
+      aria-label="Toggle navigation menu"
+      class="md:hidden fixed top-5 right-5 z-50 p-2 rounded-md text-neutral-200 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-yellow-400"
+    >
+      @if (isMobileMenuOpen) {
+      <img class="w-8 h-8" src="icons/exit.svg" alt="Exit Menu Icon" />
+      } @else {
+      <img
+        class="w-8 h-8"
+        src="icons/hamburgerMenu.svg"
+        alt="Hamburger Menu Icon"
+      />
+      }
+    </button>
+
+    @if (isMobileMenuOpen) {
+    <div
+      class="fixed inset-0 z-40 bg-black/90 backdrop-blur-md md:hidden flex flex-col items-center justify-center p-6 transition-opacity duration-300 ease-in-out"
+      [@mobileMenuAnimation]="isMobileMenuOpen ? 'open' : 'closed'"
+    >
+      <ul
+        class="space-y-5 text-neutral-200 text-xl font-medium w-full max-w-xs text-center"
+      >
+        <li>
+          <a
+            (click)="navigateAndCloseMenu('/about')"
+            class="group flex items-center justify-center gap-3 py-3 px-4 rounded-lg hover:bg-white/10 hover:text-icon-yellow focus:outline-none focus:text-icon-yellow focus:bg-white/10 transition-all duration-300 ease-in-out cursor-pointer"
+          >
+            <img
+              src="icons/about.svg"
+              class="w-6 h-6 transition-transform duration-300 ease-in-out group-hover:rotate-[360deg]"
+              alt="About Me Icon"
+            />
+            About Me
+          </a>
+        </li>
+        <li>
+          <a
+            (click)="navigateAndCloseMenu('/skills')"
+            class="group flex items-center justify-center gap-3 py-3 px-4 rounded-lg hover:bg-white/10 hover:text-icon-yellow focus:outline-none focus:text-icon-yellow focus:bg-white/10 transition-all duration-300 ease-in-out cursor-pointer"
+          >
+            <img
+              src="icons/skills.svg"
+              class="w-6 h-6 transition-transform duration-300 ease-in-out group-hover:rotate-[360deg]"
+              alt="Skills Icon"
+            />
+            Skills
+          </a>
+        </li>
+        <li>
+          <a
+            (click)="navigateAndCloseMenu('/projects')"
+            class="group flex items-center justify-center gap-3 py-3 px-4 rounded-lg hover:bg-white/10 hover:text-icon-yellow focus:outline-none focus:text-icon-yellow focus:bg-white/10 transition-all duration-300 ease-in-out cursor-pointer"
+          >
+            <img
+              src="icons/projects.svg"
+              class="w-6 h-6 transition-transform duration-300 ease-in-out group-hover:rotate-[360deg]"
+              alt="Projects Icon"
+            />
+            Projects
+          </a>
+        </li>
+        <li>
+          <a
+            (click)="navigateAndCloseMenu('/contact')"
+            class="group flex items-center justify-center gap-3 py-3 px-4 rounded-lg hover:bg-white/10 hover:text-icon-yellow focus:outline-none focus:text-icon-yellow focus:bg-white/10 transition-all duration-300 ease-in-out cursor-pointer"
+          >
+            <img
+              src="icons/contact.svg"
+              class="w-6 h-6 transition-transform duration-300 ease-in-out group-hover:rotate-[360deg]"
+              alt="Contact Icon"
+            />
+            Contact me
+          </a>
+        </li>
+        <li>
+          <a
+            (click)="navigateAndCloseMenu('/resume')"
+            class="group flex items-center justify-center gap-3 py-3 px-4 rounded-lg hover:bg-white/10 hover:text-icon-yellow focus:outline-none focus:text-icon-yellow focus:bg-white/10 transition-all duration-300 ease-in-out cursor-pointer"
+          >
+            <img
+              src="icons/resume.svg"
+              class="w-6 h-6 transition-transform duration-300 ease-in-out group-hover:rotate-[360deg]"
+              alt="Resume Icon"
+            />
+            Resume
+          </a>
+        </li>
+        <li>
+          <a
+            (click)="navigateAndCloseMenu('/services')"
+            class="group flex items-center justify-center gap-3 py-3 px-4 rounded-lg hover:bg-white/10 hover:text-icon-yellow focus:outline-none focus:text-icon-yellow focus:bg-white/10 transition-all duration-300 ease-in-out cursor-pointer"
+          >
+            <img
+              src="/icons/services.svg"
+              class="w-6 h-6 transition-transform duration-300 ease-in-out group-hover:rotate-[360deg]"
+              alt="Services Icon"
+            />
+            Services
+          </a>
+        </li>
+      </ul>
+    </div>
+    }
+
     <div class="relative w-full min-h-screen flex items-center justify-center">
       <div
         [@navbarVisibility]="isHomePage ? 'visible' : 'hiddenLeft'"
@@ -96,8 +202,9 @@
               (click)="navigateWithEffect('/services')"
               class="group flex items-center justify-end gap-3 py-2 px-3 rounded-md hover:bg-white/10 hover:text-icon-yellow focus:outline-none focus:text-icon-yellow focus:bg-white/10 transition-all duration-300 ease-in-out cursor-pointer"
             >
-              Services<img
-                src="icons/services.svg"
+              Services
+              <img
+                src="/icons/services.svg"
                 class="w-7 h-7 transition-transform duration-300 ease-in-out group-hover:rotate-[360deg]"
                 alt="Services Icon"
               />
@@ -106,15 +213,15 @@
         </ul>
       </div>
 
+      @if (isHomePage) {
       <div
-        *ngIf="isHomePage"
         [@homePageContentAnimation]
         class="relative z-10 w-11/12 sm:w-4/5 md:w-1/2 flex flex-col items-center text-center px-4 py-10"
       >
         <img
-          src="images/profile.png"
+          src="images/profile.jpeg"
           alt="Mobil Mustafayev Profile"
-          class="w-32 sm:w-40 md:w-48 h-auto rounded-full object-cover cursor-default border-4 border-yellow-400 mb-4"
+          class="w-40 h-40 sm:w-52 sm:h-52 md:w-64 md:h-64 rounded-full object-cover cursor-default border-4 border-yellow-400 mb-6 shadow-lg"
         />
         <p
           class="text-2xl sm:text-3xl font-bold text-yellow-400 drop-shadow-md tracking-wide"
@@ -133,14 +240,11 @@
           />ngular Developer...
         </p>
       </div>
-
-      <div
-        *ngIf="!isHomePage"
-        [@routeWrapperAnimation]
-        class="absolute inset-0 w-full h-full"
-      >
+      } @else {
+      <div [@routeWrapperAnimation] class="absolute inset-0 w-full h-full">
         <router-outlet></router-outlet>
       </div>
+      }
     </div>
   </div>
 </div>

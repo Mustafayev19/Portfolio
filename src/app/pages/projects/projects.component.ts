@@ -37,7 +37,7 @@ export class ProjectsComponent {
       name: 'E-commerce Platform',
       description:
         'A full-featured e-commerce website with product listings, cart functionality, user authentication, and an admin panel for managing products and orders.',
-      imageUrl: 'images/profile.png', // Placeholder path
+      imageUrl: 'images/profile.jpeg', // Placeholder path
       technologies: [
         'Angular',
         'TypeScript',
@@ -56,7 +56,7 @@ export class ProjectsComponent {
       name: 'Portfolio Website',
       description:
         'This very portfolio website, built to showcase my skills and projects. Features smooth animations and a responsive design.',
-      imageUrl: 'images/profile.png', // Placeholder path
+      imageUrl: 'images/profile.jpeg', // Placeholder path
       technologies: [
         'Angular',
         'TypeScript',
@@ -72,7 +72,7 @@ export class ProjectsComponent {
       name: 'Task Management App',
       description:
         'A Kanban-style task management application allowing users to create, organize, and track tasks across different stages of completion.',
-      imageUrl: 'images/profile.png', // Placeholder path
+      imageUrl: 'images/profile.jpeg', // Placeholder path
       technologies: ['Angular', 'Firebase', 'TypeScript', 'Angular Material'],
       liveUrl: 'https://example-taskapp.com',
       repoUrl: 'https://github.com/yourusername/task-management-app',
@@ -83,7 +83,7 @@ export class ProjectsComponent {
       name: 'Weather Dashboard',
       description:
         'A web application that displays current weather conditions and forecasts for multiple locations using a third-party weather API.',
-      imageUrl: 'images/profile.png', // Placeholder path
+      imageUrl: 'images/profile.jpeg', // Placeholder path
       technologies: ['Angular', 'RxJS', 'HttpClientModule', 'Bootstrap'],
       // liveUrl: "https://example-weatherapp.com", // Optional
       repoUrl: 'https://github.com/yourusername/weather-dashboard',
