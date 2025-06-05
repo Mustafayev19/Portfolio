@@ -1,11 +1,13 @@
-<div class="w-screen h-screen overflow-hidden overflow-y-auto">
+<div class="min-h-screen min-w-full overflow-y-auto">
   <video
     class="fixed top-0 left-0 w-full h-full object-cover -z-10"
     [autoplay]="true"
     [muted]="true"
     [loop]="true"
+    playsinline
+    preload="none"
   >
-    <source src="/videos/main.mp4" type="video/mp4" />
+    <source src="videos/main.mp4" type="video/mp4" />
   </video>
 
   <div class="relative z-20">
@@ -218,7 +220,7 @@
         class="relative z-10 w-11/12 sm:w-4/5 md:w-1/2 flex flex-col items-center text-center px-4 py-10"
       >
         <img
-          src="images/profile.jpeg"
+          src="images/profile.webp"
           alt="Mobil Mustafayev Profile"
           class="w-40 h-40 sm:w-52 sm:h-52 md:w-64 md:h-64 rounded-full object-cover cursor-default border-4 border-yellow-400 mb-6 shadow-lg"
         />
