@@ -1,6 +1,6 @@
 <div class="min-h-screen min-w-full overflow-y-auto">
   <video
-    class="fixed top-0 left-0 w-full h-full object-cover -z-10"
+    class="fixed top-0 left-0 w-full h-full object-cover -z-20"
     [autoplay]="true"
     [muted]="true"
     [loop]="true"
@@ -10,17 +10,30 @@
     <source src="videos/main.mp4" type="video/mp4" />
   </video>
 
+  <div class="fixed inset-0 -z-10 sm:hidden">
+    <div
+      class="absolute inset-0 bg-gradient-to-br from-neutral-700 via-neutral-800 to-neutral-900"
+    ></div>
+    <div
+      class="absolute top-1/4 left-[-20%] w-80 h-80 bg-neutral-700/20 rounded-full blur-3xl animate-pulse"
+    ></div>
+    <div
+      class="absolute bottom-1/4 right-[-20%] w-72 h-72 bg-yellow-500/10 rounded-full blur-3xl animate-pulse delay-1000"
+    ></div>
+  </div>
+
   <div class="relative z-20">
     <button
+      #menuButton
       (click)="toggleMobileMenu()"
       aria-label="Toggle navigation menu"
-      class="md:hidden fixed top-5 right-5 z-50 p-2 rounded-md text-neutral-200 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-yellow-400"
+      class="sm:hidden fixed top-4 right-4 z-50 p-3 rounded-full text-neutral-200 hover:bg-white/10 focus:bg-white/10 focus:outline-none transition-colors duration-200"
     >
       @if (isMobileMenuOpen) {
-      <img class="w-8 h-8" src="icons/exit.svg" alt="Exit Menu Icon" />
+      <img class="w-10 h-10" src="icons/exit.svg" alt="Exit Menu Icon" />
       } @else {
       <img
-        class="w-8 h-8"
+        class="w-10 h-10"
         src="icons/hamburgerMenu.svg"
         alt="Hamburger Menu Icon"
       />
@@ -29,7 +42,7 @@
 
     @if (isMobileMenuOpen) {
     <div
-      class="fixed inset-0 z-40 bg-black/90 backdrop-blur-md md:hidden flex flex-col items-center justify-center p-6 transition-opacity duration-300 ease-in-out"
+      class="fixed inset-0 z-40 bg-neutral-900/90 backdrop-blur-lg sm:hidden flex flex-col items-center justify-center p-6"
       [@mobileMenuAnimation]="isMobileMenuOpen ? 'open' : 'closed'"
     >
       <ul
@@ -39,135 +52,127 @@
           <a
             (click)="navigateAndCloseMenu('/about')"
             class="group flex items-center justify-center gap-3 py-3 px-4 rounded-lg hover:bg-white/10 hover:text-icon-yellow focus:outline-none focus:text-icon-yellow focus:bg-white/10 transition-all duration-300 ease-in-out cursor-pointer"
-          >
-            <img
+            ><img
               src="icons/about.svg"
               class="w-6 h-6 transition-transform duration-300 ease-in-out group-hover:rotate-[360deg]"
               alt="About Me Icon"
             />
-            About Me
-          </a>
+            About Me</a
+          >
         </li>
         <li>
           <a
             (click)="navigateAndCloseMenu('/skills')"
             class="group flex items-center justify-center gap-3 py-3 px-4 rounded-lg hover:bg-white/10 hover:text-icon-yellow focus:outline-none focus:text-icon-yellow focus:bg-white/10 transition-all duration-300 ease-in-out cursor-pointer"
-          >
-            <img
+            ><img
               src="icons/skills.svg"
               class="w-6 h-6 transition-transform duration-300 ease-in-out group-hover:rotate-[360deg]"
               alt="Skills Icon"
             />
-            Skills
-          </a>
+            Skills</a
+          >
         </li>
         <li>
           <a
             (click)="navigateAndCloseMenu('/projects')"
             class="group flex items-center justify-center gap-3 py-3 px-4 rounded-lg hover:bg-white/10 hover:text-icon-yellow focus:outline-none focus:text-icon-yellow focus:bg-white/10 transition-all duration-300 ease-in-out cursor-pointer"
-          >
-            <img
+            ><img
               src="icons/projects.svg"
               class="w-6 h-6 transition-transform duration-300 ease-in-out group-hover:rotate-[360deg]"
               alt="Projects Icon"
             />
-            Projects
-          </a>
+            Projects</a
+          >
         </li>
         <li>
           <a
             (click)="navigateAndCloseMenu('/contact')"
             class="group flex items-center justify-center gap-3 py-3 px-4 rounded-lg hover:bg-white/10 hover:text-icon-yellow focus:outline-none focus:text-icon-yellow focus:bg-white/10 transition-all duration-300 ease-in-out cursor-pointer"
-          >
-            <img
+            ><img
               src="icons/contact.svg"
               class="w-6 h-6 transition-transform duration-300 ease-in-out group-hover:rotate-[360deg]"
               alt="Contact Icon"
             />
-            Contact me
-          </a>
+            Contact me</a
+          >
         </li>
         <li>
           <a
             (click)="navigateAndCloseMenu('/resume')"
             class="group flex items-center justify-center gap-3 py-3 px-4 rounded-lg hover:bg-white/10 hover:text-icon-yellow focus:outline-none focus:text-icon-yellow focus:bg-white/10 transition-all duration-300 ease-in-out cursor-pointer"
-          >
-            <img
+            ><img
               src="icons/resume.svg"
               class="w-6 h-6 transition-transform duration-300 ease-in-out group-hover:rotate-[360deg]"
               alt="Resume Icon"
             />
-            Resume
-          </a>
+            Resume</a
+          >
         </li>
         <li>
           <a
             (click)="navigateAndCloseMenu('/services')"
             class="group flex items-center justify-center gap-3 py-3 px-4 rounded-lg hover:bg-white/10 hover:text-icon-yellow focus:outline-none focus:text-icon-yellow focus:bg-white/10 transition-all duration-300 ease-in-out cursor-pointer"
-          >
-            <img
+            ><img
               src="/icons/services.svg"
               class="w-6 h-6 transition-transform duration-300 ease-in-out group-hover:rotate-[360deg]"
               alt="Services Icon"
             />
-            Services
-          </a>
+            Services</a
+          >
         </li>
       </ul>
     </div>
     }
 
-    <div class="relative w-full min-h-screen flex items-center justify-center">
+    <div
+      class="relative w-full min-h-screen flex items-center justify-center p-4"
+    >
       <div
         [@navbarVisibility]="isHomePage ? 'visible' : 'hiddenLeft'"
-        class="hidden md:flex fixed top-0 left-0 h-full w-1/4 bg-black/25 backdrop-blur-lg z-30 items-center justify-start"
+        class="hidden sm:flex fixed top-0 left-0 h-full w-1/4 bg-black/25 backdrop-blur-lg z-30 items-center justify-start"
       >
         <ul class="space-y-8 pl-10 text-neutral-200 text-lg font-medium w-full">
           <li>
             <a
               (click)="navigateWithEffect('/about')"
               class="group flex items-center gap-3 py-2 px-3 rounded-md hover:bg-white/10 hover:text-icon-yellow focus:outline-none focus:text-icon-yellow focus:bg-white/10 transition-all duration-300 ease-in-out cursor-pointer"
-            >
-              <img
+              ><img
                 src="icons/about.svg"
                 class="w-7 h-7 transition-transform duration-300 ease-in-out group-hover:rotate-[360deg]"
                 alt="About Me Icon"
               />
-              About Me
-            </a>
+              About Me</a
+            >
           </li>
           <li>
             <a
               (click)="navigateWithEffect('/skills')"
               class="group flex items-center gap-3 py-2 px-3 rounded-md hover:bg-white/10 hover:text-icon-yellow focus:outline-none focus:text-icon-yellow focus:bg-white/10 transition-all duration-300 ease-in-out cursor-pointer"
-            >
-              <img
+              ><img
                 src="icons/skills.svg"
                 class="w-7 h-7 transition-transform duration-300 ease-in-out group-hover:rotate-[360deg]"
                 alt="Skills Icon"
               />
-              Skills
-            </a>
+              Skills</a
+            >
           </li>
           <li>
             <a
               (click)="navigateWithEffect('/projects')"
               class="group flex items-center gap-3 py-2 px-3 rounded-md hover:bg-white/10 hover:text-icon-yellow focus:outline-none focus:text-icon-yellow focus:bg-white/10 transition-all duration-300 ease-in-out cursor-pointer"
-            >
-              <img
+              ><img
                 src="icons/projects.svg"
                 class="w-7 h-7 transition-transform duration-300 ease-in-out group-hover:rotate-[360deg]"
                 alt="Projects Icon"
               />
-              Projects
-            </a>
+              Projects</a
+            >
           </li>
         </ul>
       </div>
-
       <div
         [@navbarVisibility]="isHomePage ? 'visible' : 'hiddenRight'"
-        class="hidden md:flex fixed top-0 right-0 h-full w-1/4 bg-black/25 backdrop-blur-lg z-30 items-center justify-end"
+        class="hidden sm:flex fixed top-0 right-0 h-full w-1/4 bg-black/25 backdrop-blur-lg z-30 items-center justify-end"
       >
         <ul
           class="space-y-8 pr-10 text-neutral-200 text-lg font-medium text-right w-full"
@@ -176,40 +181,34 @@
             <a
               (click)="navigateWithEffect('/contact')"
               class="group flex items-center justify-end gap-3 py-2 px-3 rounded-md hover:bg-white/10 hover:text-icon-yellow focus:outline-none focus:text-icon-yellow focus:bg-white/10 transition-all duration-300 ease-in-out cursor-pointer"
-            >
-              Contact me
+              >Contact me
               <img
                 src="icons/contact.svg"
                 class="w-7 h-7 transition-transform duration-300 ease-in-out group-hover:rotate-[360deg]"
                 alt="Contact Icon"
-              />
-            </a>
+            /></a>
           </li>
           <li>
             <a
               (click)="navigateWithEffect('/resume')"
               class="group flex items-center justify-end gap-3 py-2 px-3 rounded-md hover:bg-white/10 hover:text-icon-yellow focus:outline-none focus:text-icon-yellow focus:bg-white/10 transition-all duration-300 ease-in-out cursor-pointer"
-            >
-              Resume
+              >Resume
               <img
                 src="icons/resume.svg"
                 class="w-7 h-7 transition-transform duration-300 ease-in-out group-hover:rotate-[360deg]"
                 alt="Resume Icon"
-              />
-            </a>
+            /></a>
           </li>
           <li>
             <a
               (click)="navigateWithEffect('/services')"
               class="group flex items-center justify-end gap-3 py-2 px-3 rounded-md hover:bg-white/10 hover:text-icon-yellow focus:outline-none focus:text-icon-yellow focus:bg-white/10 transition-all duration-300 ease-in-out cursor-pointer"
-            >
-              Services
+              >Services
               <img
                 src="/icons/services.svg"
                 class="w-7 h-7 transition-transform duration-300 ease-in-out group-hover:rotate-[360deg]"
                 alt="Services Icon"
-              />
-            </a>
+            /></a>
           </li>
         </ul>
       </div>
@@ -217,29 +216,55 @@
       @if (isHomePage) {
       <div
         [@homePageContentAnimation]
-        class="relative z-10 w-11/12 sm:w-4/5 md:w-1/2 flex flex-col items-center text-center px-4 py-10"
+        class="flex flex-col items-center text-center"
       >
-        <img
-          src="images/profile.webp"
-          alt="Mobil Mustafayev Profile"
-          class="w-40 h-40 sm:w-52 sm:h-52 md:w-64 md:h-64 rounded-full object-cover cursor-default border-4 border-yellow-400 mb-6 shadow-lg"
-        />
-        <p
-          class="text-2xl sm:text-3xl font-bold text-yellow-400 drop-shadow-md tracking-wide"
-        >
-          {{ title }}
-        </p>
-        <p
-          id="typingText"
-          class="text-base sm:text-lg md:text-xl font-medium mt-4 text-white italic tracking-tight max-w-md flex items-center justify-center"
-        >
-          a passionate
+        <div class="flex flex-col items-center gap-4 sm:hidden">
           <img
-            src="icons/angular.svg"
-            class="w-8 h-6 inline-block ml-2"
-            alt="Angular Icon"
-          />ngular Developer...
-        </p>
+            src="images/profile.png"
+            alt="Mobil Mustafayev Profile"
+            class="w-40 h-40 rounded-full object-cover border-4 border-yellow-400 shadow-lg"
+          />
+          <div class="flex flex-col gap-2">
+            <h2 class="text-3xl font-bold text-neutral-100">{{ title }}</h2>
+            <h1 class="text-xl font-semibold text-yellow-400">
+              Full-Stack Angular Developer
+            </h1>
+          </div>
+          <p class="text-base text-neutral-300 max-w-sm mt-2">
+            I transform complex problems into elegant and functional web
+            solutions, prioritizing the user experience.
+          </p>
+          <a
+            (click)="navigateAndCloseMenu('/projects')"
+            class="mt-6 flex items-center justify-center gap-3 bg-yellow-400 text-gray-900 font-bold py-3 px-8 rounded-full hover:bg-yellow-300 transition-all duration-300 ease-in-out cursor-pointer"
+          >
+            <span>View My Projects</span>
+            <img src="icons/arrow-right.svg" alt="arrow" class="w-5 h-5" />
+          </a>
+        </div>
+        <div class="hidden sm:flex flex-col items-center">
+          <img
+            src="images/profile.png"
+            alt="Mobil Mustafayev Profile"
+            class="w-64 h-64 rounded-full object-cover cursor-default border-4 border-yellow-400 mb-6 shadow-lg"
+          />
+          <p
+            class="text-3xl font-bold text-yellow-400 drop-shadow-md tracking-wide"
+          >
+            {{ title }}
+          </p>
+          <p
+            id="typingText"
+            class="text-xl font-medium mt-4 text-white italic tracking-tight flex items-center justify-center"
+          >
+            a passionate
+            <img
+              src="icons/angular.svg"
+              class="w-8 h-6 inline-block ml-2"
+              alt="Angular Icon"
+            />ngular Developer...
+          </p>
+        </div>
       </div>
       } @else {
       <div [@routeWrapperAnimation] class="absolute inset-0 w-full h-full">
