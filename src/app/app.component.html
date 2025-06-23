@@ -15,7 +15,11 @@
   <!-- DÜZƏLİŞ: Mobil cihazlar üçün olan xüsusi rəngli arxa fon bloku tamamilə silindi -->
 
   <!-- Bütün məzmun bu konteynerin içindədir -->
-  <div class="relative z-20">
+  @if (!isHomePage) {
+  <div class="fixed inset-0 w-full h-full backdrop-blur-md -z-10"></div>
+  }
+
+  <div class="relative z-10">
     <button
       #menuButton
       (click)="toggleMobileMenu()"
@@ -23,8 +27,8 @@
       class="sm:hidden fixed top-4 right-4 z-50 p-3 rounded-full text-neutral-200 bg-neutral-900/60 backdrop-blur-sm border border-white/10 shadow-lg hover:bg-neutral-700/80 focus:outline-none transition-all duration-200"
     >
       @if (isMobileMenuOpen) {
-      <img class="w-10 h-10" src="icons/exit.svg" alt="Exit Menu Icon" />
-      } @else {
+      <img class="w-10 h-10" src="icons/exit.svg" alt="Exit Menu Icon" /> }
+      @else {
       <img
         class="w-10 h-10"
         src="icons/hamburgerMenu.svg"
@@ -35,7 +39,7 @@
 
     @if (isMobileMenuOpen) {
     <div
-      class="fixed inset-0 z-40 bg-neutral-900/90 backdrop-blur-lg sm:hidden flex flex-col items-center justify-center p-6"
+      class="fixed inset-0 z-40 bg-neutral-900/95 sm:hidden flex flex-col items-center justify-center p-6"
     >
       <ul
         class="space-y-5 text-neutral-200 text-xl font-medium w-full max-w-xs text-center"
@@ -43,7 +47,7 @@
         <li>
           <a
             (click)="navigateAndCloseMenu('/about')"
-            class="group flex items-center justify-center gap-3 py-3 px-4 rounded-lg hover:bg-white/10 hover:text-icon-yellow focus:outline-none focus:text-icon-yellow focus:bg-white/10 transition-all duration-300 ease-in-out cursor-pointer"
+            class="group flex items-center justify-center gap-3 py-3 px-4 rounded-lg hover:bg-white/10 hover:text-yellow-400 focus:outline-none focus:text-yellow-400 focus:bg-white/10 transition-all duration-300 ease-in-out cursor-pointer"
             ><img
               src="icons/about.svg"
               class="w-6 h-6 transition-transform duration-300 ease-in-out group-hover:rotate-[360deg]"
@@ -55,7 +59,7 @@
         <li>
           <a
             (click)="navigateAndCloseMenu('/skills')"
-            class="group flex items-center justify-center gap-3 py-3 px-4 rounded-lg hover:bg-white/10 hover:text-icon-yellow focus:outline-none focus:text-icon-yellow focus:bg-white/10 transition-all duration-300 ease-in-out cursor-pointer"
+            class="group flex items-center justify-center gap-3 py-3 px-4 rounded-lg hover:bg-white/10 hover:text-yellow-400 focus:outline-none focus:text-yellow-400 focus:bg-white/10 transition-all duration-300 ease-in-out cursor-pointer"
             ><img
               src="icons/skills.svg"
               class="w-6 h-6 transition-transform duration-300 ease-in-out group-hover:rotate-[360deg]"
@@ -67,7 +71,7 @@
         <li>
           <a
             (click)="navigateAndCloseMenu('/projects')"
-            class="group flex items-center justify-center gap-3 py-3 px-4 rounded-lg hover:bg-white/10 hover:text-icon-yellow focus:outline-none focus:text-icon-yellow focus:bg-white/10 transition-all duration-300 ease-in-out cursor-pointer"
+            class="group flex items-center justify-center gap-3 py-3 px-4 rounded-lg hover:bg-white/10 hover:text-yellow-400 focus:outline-none focus:text-yellow-400 focus:bg-white/10 transition-all duration-300 ease-in-out cursor-pointer"
             ><img
               src="icons/projects.svg"
               class="w-6 h-6 transition-transform duration-300 ease-in-out group-hover:rotate-[360deg]"
@@ -79,7 +83,7 @@
         <li>
           <a
             (click)="navigateAndCloseMenu('/contact')"
-            class="group flex items-center justify-center gap-3 py-3 px-4 rounded-lg hover:bg-white/10 hover:text-icon-yellow focus:outline-none focus:text-icon-yellow focus:bg-white/10 transition-all duration-300 ease-in-out cursor-pointer"
+            class="group flex items-center justify-center gap-3 py-3 px-4 rounded-lg hover:bg-white/10 hover:text-yellow-400 focus:outline-none focus:text-yellow-400 focus:bg-white/10 transition-all duration-300 ease-in-out cursor-pointer"
             ><img
               src="icons/contact.svg"
               class="w-6 h-6 transition-transform duration-300 ease-in-out group-hover:rotate-[360deg]"
@@ -91,7 +95,7 @@
         <li>
           <a
             (click)="navigateAndCloseMenu('/resume')"
-            class="group flex items-center justify-center gap-3 py-3 px-4 rounded-lg hover:bg-white/10 hover:text-icon-yellow focus:outline-none focus:text-icon-yellow focus:bg-white/10 transition-all duration-300 ease-in-out cursor-pointer"
+            class="group flex items-center justify-center gap-3 py-3 px-4 rounded-lg hover:bg-white/10 hover:text-yellow-400 focus:outline-none focus:text-yellow-400 focus:bg-white/10 transition-all duration-300 ease-in-out cursor-pointer"
             ><img
               src="icons/resume.svg"
               class="w-6 h-6 transition-transform duration-300 ease-in-out group-hover:rotate-[360deg]"
@@ -103,7 +107,7 @@
         <li>
           <a
             (click)="navigateAndCloseMenu('/services')"
-            class="group flex items-center justify-center gap-3 py-3 px-4 rounded-lg hover:bg-white/10 hover:text-icon-yellow focus:outline-none focus:text-icon-yellow focus:bg-white/10 transition-all duration-300 ease-in-out cursor-pointer"
+            class="group flex items-center justify-center gap-3 py-3 px-4 rounded-lg hover:bg-white/10 hover:text-yellow-400 focus:outline-none focus:text-yellow-400 focus:bg-white/10 transition-all duration-300 ease-in-out cursor-pointer"
             ><img
               src="/icons/services.svg"
               class="w-6 h-6 transition-transform duration-300 ease-in-out group-hover:rotate-[360deg]"
@@ -117,103 +121,99 @@
     }
 
     <div
-      class="relative w-full min-h-screen flex items-center justify-center p-4"
+      [@navbarVisibility]="isHomePage ? 'visible' : 'hiddenLeft'"
+      class="hidden sm:flex fixed top-0 left-0 h-full w-1/4 bg-black/40 z-30 items-center justify-start"
     >
-      <div
-        [@navbarVisibility]="isHomePage ? 'visible' : 'hiddenLeft'"
-        class="hidden sm:flex fixed top-0 left-0 h-full w-1/4 bg-black/40 backdrop-blur-md z-30 items-center justify-start"
+      <ul
+        class="space-y-8 pl-10 2xl:pl-12 text-neutral-200 text-lg xl:text-xl 2xl:text-2xl font-medium w-full"
       >
-        <!-- DÜZƏLİŞ: Yan panelin mətn ölçüsü böyük ekranlar üçün artırıldı -->
-        <ul
-          class="space-y-8 pl-10 text-neutral-200 text-lg xl:text-xl font-medium w-full"
-        >
-          <li>
-            <a
-              (click)="navigateWithEffect('/about')"
-              class="group flex items-center gap-3 py-2 px-3 rounded-md hover:bg-white/10 hover:text-icon-yellow focus:outline-none focus:text-icon-yellow focus:bg-white/10 transition-all duration-300 ease-in-out cursor-pointer"
-              ><img
-                src="icons/about.svg"
-                class="w-7 h-7 xl:w-8 xl:h-8 transition-transform duration-300 ease-in-out group-hover:rotate-[360deg]"
-                alt="About Me Icon"
-              />
-              About Me</a
-            >
-          </li>
-          <li>
-            <a
-              (click)="navigateWithEffect('/skills')"
-              class="group flex items-center gap-3 py-2 px-3 rounded-md hover:bg-white/10 hover:text-icon-yellow focus:outline-none focus:text-icon-yellow focus:bg-white/10 transition-all duration-300 ease-in-out cursor-pointer"
-              ><img
-                src="icons/skills.svg"
-                class="w-7 h-7 xl:w-8 xl:h-8 transition-transform duration-300 ease-in-out group-hover:rotate-[360deg]"
-                alt="Skills Icon"
-              />
-              Skills</a
-            >
-          </li>
-          <li>
-            <a
-              (click)="navigateWithEffect('/projects')"
-              class="group flex items-center gap-3 py-2 px-3 rounded-md hover:bg-white/10 hover:text-icon-yellow focus:outline-none focus:text-icon-yellow focus:bg-white/10 transition-all duration-300 ease-in-out cursor-pointer"
-              ><img
-                src="icons/projects.svg"
-                class="w-7 h-7 xl:w-8 xl:h-8 transition-transform duration-300 ease-in-out group-hover:rotate-[360deg]"
-                alt="Projects Icon"
-              />
-              Projects</a
-            >
-          </li>
-        </ul>
-      </div>
-      <div
-        [@navbarVisibility]="isHomePage ? 'visible' : 'hiddenRight'"
-        class="hidden sm:flex fixed top-0 right-0 h-full w-1/4 bg-black/40 backdrop-blur-md z-30 items-center justify-end"
+        <li>
+          <a
+            (click)="navigateWithEffect('/about')"
+            class="group flex items-center gap-3 py-2 px-3 rounded-md hover:bg-white/10 hover:text-yellow-400 focus:outline-none focus:text-yellow-400 focus:bg-white/10 transition-all duration-300 ease-in-out cursor-pointer"
+            ><img
+              src="icons/about.svg"
+              class="w-7 h-7 xl:w-8 xl:h-8 2xl:w-9 2xl:h-9 transition-transform duration-300 ease-in-out group-hover:rotate-[360deg]"
+              alt="About Me Icon"
+            />
+            About Me</a
+          >
+        </li>
+        <li>
+          <a
+            (click)="navigateWithEffect('/skills')"
+            class="group flex items-center gap-3 py-2 px-3 rounded-md hover:bg-white/10 hover:text-yellow-400 focus:outline-none focus:text-yellow-400 focus:bg-white/10 transition-all duration-300 ease-in-out cursor-pointer"
+            ><img
+              src="icons/skills.svg"
+              class="w-7 h-7 xl:w-8 xl:h-8 2xl:w-9 2xl:h-9 transition-transform duration-300 ease-in-out group-hover:rotate-[360deg]"
+              alt="Skills Icon"
+            />
+            Skills</a
+          >
+        </li>
+        <li>
+          <a
+            (click)="navigateWithEffect('/projects')"
+            class="group flex items-center gap-3 py-2 px-3 rounded-md hover:bg-white/10 hover:text-yellow-400 focus:outline-none focus:text-yellow-400 focus:bg-white/10 transition-all duration-300 ease-in-out cursor-pointer"
+            ><img
+              src="icons/projects.svg"
+              class="w-7 h-7 xl:w-8 xl:h-8 2xl:w-9 2xl:h-9 transition-transform duration-300 ease-in-out group-hover:rotate-[360deg]"
+              alt="Projects Icon"
+            />
+            Projects</a
+          >
+        </li>
+      </ul>
+    </div>
+    <div
+      [@navbarVisibility]="isHomePage ? 'visible' : 'hiddenRight'"
+      class="hidden sm:flex fixed top-0 right-0 h-full w-1/4 bg-black/40 z-30 items-center justify-end"
+    >
+      <ul
+        class="space-y-8 pr-10 2xl:pr-12 text-neutral-200 text-lg xl:text-xl 2xl:text-2xl font-medium text-right w-full"
       >
-        <ul
-          class="space-y-8 pr-10 text-neutral-200 text-lg xl:text-xl font-medium text-right w-full"
-        >
-          <li>
-            <a
-              (click)="navigateWithEffect('/contact')"
-              class="group flex items-center justify-end gap-3 py-2 px-3 rounded-md hover:bg-white/10 hover:text-icon-yellow focus:outline-none focus:text-icon-yellow focus:bg-white/10 transition-all duration-300 ease-in-out cursor-pointer"
-              >Contact me
-              <img
-                src="icons/contact.svg"
-                class="w-7 h-7 xl:w-8 xl:h-8 transition-transform duration-300 ease-in-out group-hover:rotate-[360deg]"
-                alt="Contact Icon"
-            /></a>
-          </li>
-          <li>
-            <a
-              (click)="navigateWithEffect('/resume')"
-              class="group flex items-center justify-end gap-3 py-2 px-3 rounded-md hover:bg-white/10 hover:text-icon-yellow focus:outline-none focus:text-icon-yellow focus:bg-white/10 transition-all duration-300 ease-in-out cursor-pointer"
-              >Resume
-              <img
-                src="icons/resume.svg"
-                class="w-7 h-7 xl:w-8 xl:h-8 transition-transform duration-300 ease-in-out group-hover:rotate-[360deg]"
-                alt="Resume Icon"
-            /></a>
-          </li>
-          <li>
-            <a
-              (click)="navigateWithEffect('/services')"
-              class="group flex items-center justify-end gap-3 py-2 px-3 rounded-md hover:bg-white/10 hover:text-icon-yellow focus:outline-none focus:text-icon-yellow focus:bg-white/10 transition-all duration-300 ease-in-out cursor-pointer"
-              >Services
-              <img
-                src="/icons/services.svg"
-                class="w-7 h-7 xl:w-8 xl:h-8 transition-transform duration-300 ease-in-out group-hover:rotate-[360deg]"
-                alt="Services Icon"
-            /></a>
-          </li>
-        </ul>
-      </div>
+        <li>
+          <a
+            (click)="navigateWithEffect('/contact')"
+            class="group flex items-center justify-end gap-3 py-2 px-3 rounded-md hover:bg-white/10 hover:text-yellow-400 focus:outline-none focus:text-yellow-400 focus:bg-white/10 transition-all duration-300 ease-in-out cursor-pointer"
+            >Contact me
+            <img
+              src="icons/contact.svg"
+              class="w-7 h-7 xl:w-8 xl:h-8 2xl:w-9 2xl:h-9 transition-transform duration-300 ease-in-out group-hover:rotate-[360deg]"
+              alt="Contact Icon"
+          /></a>
+        </li>
+        <li>
+          <a
+            (click)="navigateWithEffect('/resume')"
+            class="group flex items-center justify-end gap-3 py-2 px-3 rounded-md hover:bg-white/10 hover:text-yellow-400 focus:outline-none focus:text-yellow-400 focus:bg-white/10 transition-all duration-300 ease-in-out cursor-pointer"
+            >Resume
+            <img
+              src="icons/resume.svg"
+              class="w-7 h-7 xl:w-8 xl:h-8 2xl:w-9 2xl:h-9 transition-transform duration-300 ease-in-out group-hover:rotate-[360deg]"
+              alt="Resume Icon"
+          /></a>
+        </li>
+        <li>
+          <a
+            (click)="navigateWithEffect('/services')"
+            class="group flex items-center justify-end gap-3 py-2 px-3 rounded-md hover:bg-white/10 hover:text-yellow-400 focus:outline-none focus:text-yellow-400 focus:bg-white/10 transition-all duration-300 ease-in-out cursor-pointer"
+            >Services
+            <img
+              src="/icons/services.svg"
+              class="w-7 h-7 xl:w-8 xl:h-8 2xl:w-9 2xl:h-9 transition-transform duration-300 ease-in-out group-hover:rotate-[360deg]"
+              alt="Services Icon"
+          /></a>
+        </li>
+      </ul>
+    </div>
 
+    <div class="relative min-h-dvh w-full flex items-center justify-center p-4">
       @if (isHomePage) {
       <div
         [@homePageContentAnimation]
         class="flex flex-col items-center text-center"
       >
-        <!-- Mobil üçün olan mərkəzi məzmun (dəyişiklik yoxdur) -->
         <div class="flex flex-col items-center gap-4 sm:hidden">
           <img
             src="images/profile.webp"
@@ -226,6 +226,10 @@
               Full-Stack Angular Developer
             </h1>
           </div>
+          <p class="text-base text-neutral-300 max-w-sm mt-2">
+            I transform complex problems into elegant and functional web
+            solutions, prioritizing the user experience.
+          </p>
           <a
             (click)="navigateAndCloseMenu('/projects')"
             class="mt-6 flex items-center justify-center gap-3 bg-yellow-400 text-gray-900 font-bold py-3 px-8 rounded-full hover:bg-yellow-300 transition-all duration-300 ease-in-out cursor-pointer"
@@ -234,25 +238,21 @@
             <img src="icons/search.svg" alt="arrow" class="w-5 h-5" />
           </a>
         </div>
-
-        <!-- Desktop üçün olan mərkəzi məzmun (DÜZƏLİŞLƏR BURADADIR) -->
         <div class="hidden sm:flex flex-col items-center">
           <img
             src="images/profile.webp"
             alt="Profile"
-            class="w-64 h-64 rounded-full object-cover cursor-default border-4 border-yellow-400 mb-6 shadow-lg xl:w-72 xl:h-72 2xl:w-80 2xl:h-80"
+            class="w-64 h-64 rounded-full object-cover cursor-default border-4 border-yellow-400 mb-6 shadow-lg xl:w-72 xl:h-72 2xl:w-96 2xl:h-96"
           />
-
           <div class="flex flex-col items-center">
             <p
               class="text-3xl font-bold text-yellow-400 drop-shadow-md tracking-wide xl:text-4xl 2xl:text-5xl"
             >
               {{ title }}
             </p>
-
             <p
               id="typingText"
-              class="text-xl font-medium mt-4 flex justify-start items-center min-h-[28px] w-[480px] pl-20 sm:pl-24 xl:text-2xl xl:w-[580px] xl:pl-28 2xl:text-3xl 2xl:w-[680px] 2xl:pl-32"
+              class="text-xl font-medium mt-4 flex justify-center items-center min-h-[28px] xl:text-2xl 2xl:text-3xl"
             >
               <span class="mr-1">{{ textToDisplay }}</span>
               <span class="blinking-cursor">|</span>
@@ -261,7 +261,7 @@
         </div>
       </div>
       } @else {
-      <div [@routeWrapperAnimation] class="absolute inset-0 w-full h-full">
+      <div [@routeWrapperAnimation] class="w-full h-full">
         <router-outlet></router-outlet>
       </div>
       }
