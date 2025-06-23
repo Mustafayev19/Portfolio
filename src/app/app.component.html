@@ -1,4 +1,6 @@
-<div class="min-h-screen min-w-full overflow-y-auto">
+<!-- DÜZƏLİŞ: 'overflow-y-auto' və arxa fon rəngi ən üstdən silindi -->
+<div class="min-h-screen min-w-full">
+  <!-- VİDEO: Bütün ekran ölçüləri üçün artıq görünəndir -->
   <video
     class="fixed top-0 left-0 w-full h-full object-cover -z-20"
     [autoplay]="true"
@@ -9,18 +11,10 @@
   >
     <source src="videos/main.mp4" type="video/mp4" />
   </video>
-  <div class="fixed inset-0 -z-10 sm:hidden">
-    <div
-      class="absolute inset-0 bg-gradient-to-br from-indigo-950 via-blue-950 to-neutral-950"
-    ></div>
-    <div
-      class="absolute top-1/4 left-[-20%] w-80 h-80 bg-blue-800/20 rounded-full blur-3xl animate-pulse"
-    ></div>
-    <div
-      class="absolute bottom-1/4 right-[-20%] w-72 h-72 bg-yellow-500/10 rounded-full blur-3xl animate-pulse delay-1000"
-    ></div>
-  </div>
 
+  <!-- DÜZƏLİŞ: Mobil cihazlar üçün olan xüsusi rəngli arxa fon bloku tamamilə silindi -->
+
+  <!-- Bütün məzmun bu konteynerin içindədir -->
   <div class="relative z-20">
     <button
       #menuButton
@@ -42,7 +36,6 @@
     @if (isMobileMenuOpen) {
     <div
       class="fixed inset-0 z-40 bg-neutral-900/90 backdrop-blur-lg sm:hidden flex flex-col items-center justify-center p-6"
-      [@mobileMenuAnimation]="isMobileMenuOpen ? 'open' : 'closed'"
     >
       <ul
         class="space-y-5 text-neutral-200 text-xl font-medium w-full max-w-xs text-center"
@@ -128,16 +121,19 @@
     >
       <div
         [@navbarVisibility]="isHomePage ? 'visible' : 'hiddenLeft'"
-        class="hidden sm:flex fixed top-0 left-0 h-full w-1/4 bg-black/25 backdrop-blur-lg z-30 items-center justify-start"
+        class="hidden sm:flex fixed top-0 left-0 h-full w-1/4 bg-black/40 backdrop-blur-md z-30 items-center justify-start"
       >
-        <ul class="space-y-8 pl-10 text-neutral-200 text-lg font-medium w-full">
+        <!-- DÜZƏLİŞ: Yan panelin mətn ölçüsü böyük ekranlar üçün artırıldı -->
+        <ul
+          class="space-y-8 pl-10 text-neutral-200 text-lg xl:text-xl font-medium w-full"
+        >
           <li>
             <a
               (click)="navigateWithEffect('/about')"
               class="group flex items-center gap-3 py-2 px-3 rounded-md hover:bg-white/10 hover:text-icon-yellow focus:outline-none focus:text-icon-yellow focus:bg-white/10 transition-all duration-300 ease-in-out cursor-pointer"
               ><img
                 src="icons/about.svg"
-                class="w-7 h-7 transition-transform duration-300 ease-in-out group-hover:rotate-[360deg]"
+                class="w-7 h-7 xl:w-8 xl:h-8 transition-transform duration-300 ease-in-out group-hover:rotate-[360deg]"
                 alt="About Me Icon"
               />
               About Me</a
@@ -149,7 +145,7 @@
               class="group flex items-center gap-3 py-2 px-3 rounded-md hover:bg-white/10 hover:text-icon-yellow focus:outline-none focus:text-icon-yellow focus:bg-white/10 transition-all duration-300 ease-in-out cursor-pointer"
               ><img
                 src="icons/skills.svg"
-                class="w-7 h-7 transition-transform duration-300 ease-in-out group-hover:rotate-[360deg]"
+                class="w-7 h-7 xl:w-8 xl:h-8 transition-transform duration-300 ease-in-out group-hover:rotate-[360deg]"
                 alt="Skills Icon"
               />
               Skills</a
@@ -161,7 +157,7 @@
               class="group flex items-center gap-3 py-2 px-3 rounded-md hover:bg-white/10 hover:text-icon-yellow focus:outline-none focus:text-icon-yellow focus:bg-white/10 transition-all duration-300 ease-in-out cursor-pointer"
               ><img
                 src="icons/projects.svg"
-                class="w-7 h-7 transition-transform duration-300 ease-in-out group-hover:rotate-[360deg]"
+                class="w-7 h-7 xl:w-8 xl:h-8 transition-transform duration-300 ease-in-out group-hover:rotate-[360deg]"
                 alt="Projects Icon"
               />
               Projects</a
@@ -171,10 +167,10 @@
       </div>
       <div
         [@navbarVisibility]="isHomePage ? 'visible' : 'hiddenRight'"
-        class="hidden sm:flex fixed top-0 right-0 h-full w-1/4 bg-black/25 backdrop-blur-lg z-30 items-center justify-end"
+        class="hidden sm:flex fixed top-0 right-0 h-full w-1/4 bg-black/40 backdrop-blur-md z-30 items-center justify-end"
       >
         <ul
-          class="space-y-8 pr-10 text-neutral-200 text-lg font-medium text-right w-full"
+          class="space-y-8 pr-10 text-neutral-200 text-lg xl:text-xl font-medium text-right w-full"
         >
           <li>
             <a
@@ -183,7 +179,7 @@
               >Contact me
               <img
                 src="icons/contact.svg"
-                class="w-7 h-7 transition-transform duration-300 ease-in-out group-hover:rotate-[360deg]"
+                class="w-7 h-7 xl:w-8 xl:h-8 transition-transform duration-300 ease-in-out group-hover:rotate-[360deg]"
                 alt="Contact Icon"
             /></a>
           </li>
@@ -194,7 +190,7 @@
               >Resume
               <img
                 src="icons/resume.svg"
-                class="w-7 h-7 transition-transform duration-300 ease-in-out group-hover:rotate-[360deg]"
+                class="w-7 h-7 xl:w-8 xl:h-8 transition-transform duration-300 ease-in-out group-hover:rotate-[360deg]"
                 alt="Resume Icon"
             /></a>
           </li>
@@ -205,7 +201,7 @@
               >Services
               <img
                 src="/icons/services.svg"
-                class="w-7 h-7 transition-transform duration-300 ease-in-out group-hover:rotate-[360deg]"
+                class="w-7 h-7 xl:w-8 xl:h-8 transition-transform duration-300 ease-in-out group-hover:rotate-[360deg]"
                 alt="Services Icon"
             /></a>
           </li>
@@ -217,6 +213,7 @@
         [@homePageContentAnimation]
         class="flex flex-col items-center text-center"
       >
+        <!-- Mobil üçün olan mərkəzi məzmun (dəyişiklik yoxdur) -->
         <div class="flex flex-col items-center gap-4 sm:hidden">
           <img
             src="images/profile.webp"
@@ -229,47 +226,43 @@
               Full-Stack Angular Developer
             </h1>
           </div>
-          <p
-            id="typingText"
-            class="text-xl font-medium mt-4 text-white italic tracking-tight flex items-center justify-center min-h-[56px] sm:min-h-[28px]"
-          >
-            <span class="mr-1">{{ textToDisplay }}</span>
-            <span class="blinking-cursor">|</span>
-          </p>
           <a
             (click)="navigateAndCloseMenu('/projects')"
             class="mt-6 flex items-center justify-center gap-3 bg-yellow-400 text-gray-900 font-bold py-3 px-8 rounded-full hover:bg-yellow-300 transition-all duration-300 ease-in-out cursor-pointer"
           >
             <span>View My Projects</span>
-            <img src="icons/arrow-right.svg" alt="arrow" class="w-5 h-5" />
+            <img src="icons/search.svg" alt="arrow" class="w-5 h-5" />
           </a>
         </div>
+
+        <!-- Desktop üçün olan mərkəzi məzmun (DÜZƏLİŞLƏR BURADADIR) -->
         <div class="hidden sm:flex flex-col items-center">
           <img
             src="images/profile.webp"
-            alt=" Profile"
-            class="w-64 h-64 rounded-full object-cover cursor-default border-4 border-yellow-400 mb-6 shadow-lg"
+            alt="Profile"
+            class="w-64 h-64 rounded-full object-cover cursor-default border-4 border-yellow-400 mb-6 shadow-lg xl:w-72 xl:h-72 2xl:w-80 2xl:h-80"
           />
-          <p
-            class="text-3xl font-bold text-yellow-400 drop-shadow-md tracking-wide"
-          >
-            {{ title }}
-          </p>
 
-          <p
-            id="typingText"
-            class="text-xl font-medium mt-4 w-[320px] flex justify-start items-center min-h-[28px]"
-          >
-            <span class="mr-1">{{ textToDisplay }}</span>
-            <span class="blinking-cursor">|</span>
-          </p>
+          <div class="flex flex-col items-center">
+            <p
+              class="text-3xl font-bold text-yellow-400 drop-shadow-md tracking-wide xl:text-4xl 2xl:text-5xl"
+            >
+              {{ title }}
+            </p>
+
+            <p
+              id="typingText"
+              class="text-xl font-medium mt-4 flex justify-start items-center min-h-[28px] w-[480px] pl-20 sm:pl-24 xl:text-2xl xl:w-[580px] xl:pl-28 2xl:text-3xl 2xl:w-[680px] 2xl:pl-32"
+            >
+              <span class="mr-1">{{ textToDisplay }}</span>
+              <span class="blinking-cursor">|</span>
+            </p>
+          </div>
         </div>
       </div>
       } @else {
-      <div class="absolute inset-0 w-full h-full backdrop-blur-md">
-        <div [@routeWrapperAnimation] class="w-full h-full">
-          <router-outlet></router-outlet>
-        </div>
+      <div [@routeWrapperAnimation] class="absolute inset-0 w-full h-full">
+        <router-outlet></router-outlet>
       </div>
       }
     </div>

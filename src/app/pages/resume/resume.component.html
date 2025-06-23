@@ -1,5 +1,5 @@
 <div
-  class="min-h-screen text-white flex flex-col items-center justify-start p-4 sm:p-6 md:p-12 backdrop-blur-md overflow-y-auto"
+  class="min-h-screen text-white flex flex-col items-center justify-start p-4 sm:p-6 md:p-12 overflow-y-auto"
 >
   <button
     (click)="goBackToHome()"
@@ -8,139 +8,85 @@
   >
     <img class="h-7 w-7 sm:h-8 sm:w-8" src="icons/arrow.svg" alt="back arrow" />
   </button>
-  <div class="max-w-4xl w-full space-y-8 md:space-y-10 py-10 sm:py-12 px-2">
-    <section class="text-center animate-me-section">
+
+  <div
+    class="max-w-4xl w-full xl:max-w-5xl space-y-8 md:space-y-10 py-10 sm:py-12 px-2"
+  >
+    <section class="text-center animate-me">
       <h1
-        class="text-3xl sm:text-4xl md:text-5xl font-bold text-yellow-400 mb-4"
+        class="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold text-yellow-400 mb-4"
       >
-        {{ pageTitle }}
+        {{ resumeData.pageTitle }}
       </h1>
-      @if (downloadPdfUrl) {
+      @if (resumeData.downloadPdfUrl) {
       <a
-        [href]="downloadPdfUrl"
+        [href]="resumeData.downloadPdfUrl"
         target="_blank"
-        [download]="'Mustafayev_Resume.pdf'"
-        class="inline-block mt-2 mb-8 px-6 py-2.5 bg-yellow-500 text-gray-900 font-semibold rounded-lg hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-50 transition-all duration-300 shadow-md hover:shadow-lg"
+        [download]="'Mobil_Mustafayev_Resume.pdf'"
+        class="inline-block mt-2 mb-8 px-6 py-2.5 bg-yellow-400 text-gray-900 font-bold rounded-lg hover:bg-yellow-500 transition-all duration-300 shadow-lg hover:shadow-yellow-400/50"
       >
         Download PDF Version
       </a>
       }
     </section>
 
-    <section class="animate-me-section bg-gray-800/50 p-6 rounded-lg shadow-md">
+    <section class="animate-me bg-neutral-800/50 p-6 rounded-2xl shadow-lg">
       <h2
-        class="text-2xl sm:text-3xl font-semibold text-yellow-300 mb-4 border-b border-gray-700 pb-2"
+        class="text-2xl sm:text-3xl font-semibold text-yellow-300 mb-4 border-b border-neutral-700 pb-3"
       >
-        Summary
+        Professional Summary
       </h2>
-      <p class="text-gray-300 leading-relaxed">{{ summary }}</p>
+      <p class="text-neutral-300 leading-relaxed text-left">
+        {{ resumeData.summary }}
+      </p>
     </section>
 
-    <section class="animate-me-section bg-gray-800/50 p-6 rounded-lg shadow-md">
+    <section class="animate-me bg-neutral-800/50 p-6 rounded-2xl shadow-lg">
       <h2
-        class="text-2xl sm:text-3xl font-semibold text-yellow-300 mb-6 border-b border-gray-700 pb-2"
-      >
-        Work Experience
-      </h2>
-      <div class="space-y-6">
-        @for (job of workExperience; track job.company + job.dates; let isLast =
-        $last) {
-        <div class="resume-entry">
-          <h3 class="text-xl sm:text-2xl font-semibold text-gray-100">
-            {{ job.jobTitle }}
-          </h3>
-          <p class="text-md text-yellow-400/90">
-            {{ job.company }}
-            <span class="text-gray-400 text-sm">| {{ job.location }}</span>
-          </p>
-          <p class="text-sm text-gray-500 mb-2">{{ job.dates }}</p>
-          <ul class="list-disc list-inside text-gray-300 space-y-1 pl-1">
-            @for (responsibility of job.responsibilities; track $index) {
-            <li>{{ responsibility }}</li>
-            }
-          </ul>
-        </div>
-        @if (!isLast) {
-        <hr class="border-gray-700/50 my-6" />
-        } }
-      </div>
-    </section>
-
-    <section class="animate-me-section bg-gray-800/50 p-6 rounded-lg shadow-md">
-      <h2
-        class="text-2xl sm:text-3xl font-semibold text-yellow-300 mb-6 border-b border-gray-700 pb-2"
-      >
-        Education
-      </h2>
-      <div class="space-y-4">
-        @for (edu of education; track edu.institution + edu.dates; let isLast =
-        $last) {
-        <div class="resume-entry">
-          <h3 class="text-xl sm:text-2xl font-semibold text-gray-100">
-            {{ edu.degree }}
-          </h3>
-          <p class="text-md text-yellow-400/90">
-            {{ edu.institution }}
-            <span class="text-gray-400 text-sm">| {{ edu.location }}</span>
-          </p>
-          <p class="text-sm text-gray-500 mb-1">{{ edu.dates }}</p>
-          @if (edu.details) {
-          <p class="text-sm text-gray-400 italic">{{ edu.details }}</p>
-          }
-        </div>
-        @if (!isLast) {
-        <hr class="border-gray-700/50 my-6" />
-        } }
-      </div>
-    </section>
-
-    <section class="animate-me-section bg-gray-800/50 p-6 rounded-lg shadow-md">
-      <h2
-        class="text-2xl sm:text-3xl font-semibold text-yellow-300 mb-4 border-b border-gray-700 pb-2"
+        class="text-2xl sm:text-3xl font-semibold text-yellow-300 mb-4 border-b border-neutral-700 pb-3"
       >
         Key Skills
       </h2>
       <div class="flex flex-wrap gap-2">
-        @for (skill of keySkills; track skill) {
+        @for (skill of resumeData.keySkills; track skill) {
         <span
-          class="bg-gray-700 text-yellow-400/90 text-sm px-3 py-1.5 rounded-full"
+          class="bg-neutral-700/80 text-yellow-400/90 text-sm px-3 py-1.5 rounded-full"
           >{{ skill }}</span
         >
         }
       </div>
     </section>
 
-    @if (certifications.length > 0) {
-    <section class="animate-me-section bg-gray-800/50 p-6 rounded-lg shadow-md">
+    <section class="animate-me bg-neutral-800/50 p-6 rounded-2xl shadow-lg">
       <h2
-        class="text-2xl sm:text-3xl font-semibold text-yellow-300 mb-6 border-b border-gray-700 pb-2"
+        class="text-2xl sm:text-3xl font-semibold text-yellow-300 mb-6 border-b border-neutral-700 pb-3"
       >
-        Certifications
+        Featured Projects / Experience
       </h2>
-      <div class="space-y-4">
-        @for (cert of certifications; track cert.name; let isLast = $last) {
+      <div class="space-y-8">
+        @for (job of resumeData.experience; track job.company; let isLast =
+        $last) {
         <div class="resume-entry">
-          <h3 class="text-lg font-semibold text-gray-100">{{ cert.name }}</h3>
-          <p class="text-sm text-gray-400">
-            {{ cert.issuingOrganization }}
-            @if (cert.date) {
-            <span class="text-gray-500"> - {{ cert.date }}</span>
-            }
+          <h3 class="text-xl sm:text-2xl font-semibold text-neutral-100">
+            {{ job.jobTitle }}
+          </h3>
+          <p class="text-md text-yellow-400/90">
+            {{ job.company }}
+            <span class="text-gray-400 text-sm">| {{ job.location }}</span>
           </p>
-          @if (cert.credentialUrl) {
-          <a
-            href="{{ cert.credentialUrl }}"
-            target="_blank"
-            class="text-xs text-sky-400 hover:text-sky-300"
-            >View Credential</a
+          <p class="text-sm text-gray-500 mb-3">{{ job.dates }}</p>
+          <ul
+            class="list-disc list-inside text-neutral-300 space-y-1.5 pl-2 text-left"
           >
-          }
+            @for (responsibility of job.responsibilities; track $index) {
+            <li>{{ responsibility }}</li>
+            }
+          </ul>
         </div>
         @if (!isLast) {
-        <hr class="border-gray-700/50 my-4" />
+        <hr class="border-neutral-700/50 my-6" />
         } }
       </div>
     </section>
-    }
   </div>
 </div>

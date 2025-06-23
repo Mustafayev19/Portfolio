@@ -1,5 +1,5 @@
 <div
-  class="min-h-screen text-white flex flex-col items-center justify-start p-4 sm:p-6 md:p-12 backdrop-blur-md overflow-y-auto"
+  class="min-h-screen text-white flex flex-col items-center justify-start p-4 sm:p-6 md:p-12 overflow-y-auto"
 >
   <button
     (click)="goBackToHome()"
@@ -9,10 +9,12 @@
     <img class="h-7 w-7 sm:h-8 sm:w-8" src="icons/arrow.svg" alt="back arrow" />
   </button>
 
-  <div class="max-w-5xl w-full space-y-10 md:space-y-12 py-10 sm:py-12 px-2">
+  <div
+    class="max-w-5xl w-full xl:max-w-7xl space-y-10 md:space-y-12 py-10 sm:py-12 px-2"
+  >
     <section class="text-center animate-me">
       <h1
-        class="text-3xl sm:text-4xl md:text-5xl font-bold text-yellow-400 mb-10 sm:mb-12"
+        class="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold text-yellow-400 mb-10 sm:mb-12"
       >
         {{ pageTitle }}
       </h1>
@@ -20,18 +22,18 @@
 
     <section class="animate-me">
       <div
-        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+        class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 md:gap-8"
       >
         @for (service of services; track service.id) {
         <div
-          class="service-card bg-gray-800/60 p-6 rounded-xl shadow-lg flex flex-col items-center text-center group hover:bg-gray-700/80 transition-all duration-300"
+          class="service-card bg-gray-800/60 p-6 xl:p-8 rounded-2xl shadow-lg flex flex-col items-start text-left group border border-transparent hover:border-yellow-400/30 hover:shadow-yellow-400/20 transform hover:-translate-y-2 transition-all duration-300"
         >
           @if (service.iconSvgPath) {
           <div
-            class="p-3 mb-4 rounded-full bg-yellow-400/10 group-hover:bg-yellow-400/20 transition-colors duration-300"
+            class="self-center p-3 mb-5 rounded-lg bg-yellow-400/10 border border-yellow-400/20"
           >
             <svg
-              class="w-10 h-10 sm:w-12 sm:h-12"
+              class="w-10 h-10 sm:w-12 sm:h-12 xl:w-14 xl:h-14"
               [class]="service.iconClasses || 'text-yellow-400'"
               fill="none"
               stroke-linecap="round"
@@ -45,19 +47,22 @@
           </div>
           } @else if (service.iconClasses) {
           <div
-            class="p-3 mb-4 rounded-full bg-yellow-400/10 group-hover:bg-yellow-400/20 transition-colors duration-300"
+            class="self-center p-3 mb-5 rounded-lg bg-yellow-400/10 border border-yellow-400/20"
           >
-            <i class="text-4xl sm:text-5xl" [class]="service.iconClasses"></i>
+            <i
+              class="text-4xl sm:text-5xl xl:text-6xl"
+              [class]="service.iconClasses"
+            ></i>
           </div>
           }
 
           <h3
-            class="text-xl sm:text-2xl font-semibold text-yellow-300 mb-2 group-hover:text-yellow-200 transition-colors duration-300"
+            class="text-xl sm:text-2xl xl:text-2xl font-semibold text-yellow-300 mb-3 group-hover:text-yellow-200 transition-colors duration-300"
           >
             {{ service.title }}
           </h3>
           <p
-            class="text-gray-300 text-sm sm:text-base leading-relaxed flex-grow"
+            class="text-gray-300 text-sm sm:text-base xl:text-lg leading-relaxed flex-grow"
           >
             {{ service.description }}
           </p>
