@@ -1,42 +1,23 @@
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
-import { Router } from '@angular/router'; // RouterLink importu lazım deyil
+import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms'; // Form üçün modullar
+import { DataService } from '../../data.service';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule], // FormsModule və ReactiveFormsModule silindi
+  imports: [CommonModule, ReactiveFormsModule], // ReactiveFormsModule əlavə edildi
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css'],
 })
 export class ContactComponent {
-  pageTitle: string = "Let's Connect"; // Başlıq dəyişdirildi
-  contactIntro: string =
-    "I'm always excited to hear about new opportunities, collaborations, or just to chat. Feel free to reach out through any of the platforms below or send me an email.";
+  private dataService = inject(DataService);
+  private router = inject(Router);
+  private fb = inject(FormBuilder);
 
-  emailAddress: string = 'your.email@example.com'; // Öz emailinizi yazın
-
-  socialLinks: {
-    name: string;
-    url: string;
-    img: string;
-  }[] = [
-    {
-      name: 'LinkedIn',
-      url: 'https://linkedin.com/in/yourprofile', // Öz LinkedIn profilinizin linki
-      img: 'icons/linkedin.svg',
-    },
-    {
-      name: 'GitHub',
-      url: 'https://github.com/yourusername', // Öz GitHub profilinizin linki
-      img: 'icons/github.svg',
-    },
-    // { name: 'Twitter / X', url: 'https://twitter.com/yourusername', iconSvgPath: '...', iconClass: 'text-sky-400' },
-    // Digər sosial media linklərinizi də əlavə edə bilərsiniz
-  ];
-
-  constructor(private router: Router) {}
+  contactData = this.dataService.getContactData();
 
   goBackToHome() {
     this.router.navigate(['/']);

@@ -4,11 +4,10 @@ import {
   OnInit,
   ViewChild,
   ElementRef,
-} from '@angular/core'; // ViewChild və ElementRef əlavə edildi
+} from '@angular/core';
 import { Router, NavigationEnd, RouterOutlet } from '@angular/router';
 import { Subject } from 'rxjs';
 import { filter, takeUntil, tap } from 'rxjs/operators';
-
 import {
   trigger,
   state,
@@ -25,11 +24,7 @@ import {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   animations: [
-    trigger('mobileMenuAnimation', [
-      state('closed', style({ opacity: 0, transform: 'translateY(-20%)' })),
-      state('open', style({ opacity: 1, transform: 'translateY(0)' })),
-      transition('closed <=> open', [animate('300ms ease-in-out')]),
-    ]),
+    // DÜZƏLİŞ: Yan panel (sidebar) animasiyası geri qaytarıldı
     trigger('navbarVisibility', [
       state('visible', style({ transform: 'translateX(0%)', opacity: 1 })),
       state(
@@ -67,6 +62,7 @@ import {
         ),
       ]),
     ]),
+    // DÜZƏLİŞ: Ana səhifə məzmununun (şəkil və s.) animasiyası geri qaytarıldı
     trigger('homePageContentAnimation', [
       transition(':enter', [
         style({ opacity: 0, transform: 'translateY(30px)' }),
@@ -82,6 +78,7 @@ import {
         ),
       ]),
     ]),
+    // Səhifə keçid animasiyası olduğu kimi qalır
     trigger('routeWrapperAnimation', [
       transition(':enter', [
         style({ opacity: 0, transform: 'scale(0.98) translateY(10px)' }),
@@ -97,10 +94,10 @@ import {
         ),
       ]),
     ]),
+    // mobileMenuAnimation is intentionally removed for simplification
   ],
 })
 export class AppComponent implements OnInit, OnDestroy {
-  // DÜZƏLİŞ 4: Düyməyə istinad etmək üçün bu sətir əlavə edildi
   @ViewChild('menuButton') menuButton!: ElementRef;
 
   title = 'Mobil Mustafayev';
@@ -108,9 +105,21 @@ export class AppComponent implements OnInit, OnDestroy {
   isMobileMenuOpen: boolean = false;
   private destroy$ = new Subject<void>();
 
+  // Animasiya dəyişənləri
+  textToDisplay: string = '';
+  private phrases: string[] = [
+    'a passionate Full-Stack Developer.',
+    'an Expert Angular Specialist.',
+    'Crafting Backends with Nest.js.',
+    'Developing End-to-End Solutions.',
+  ];
+  private phraseIndex: number = 0;
+  private typingTimeout: any;
+
   constructor(private router: Router) {}
 
   ngOnInit(): void {
+    // Router eventlərini izləmək üçün
     this.isHomePage = this.router.url === '/';
     this.router.events
       .pipe(
@@ -121,28 +130,69 @@ export class AppComponent implements OnInit, OnDestroy {
         takeUntil(this.destroy$)
       )
       .subscribe();
+
+    // Animasiyanı burada başlatmaq daha etibarlıdır
+    this.startTypewriter();
+  }
+
+  startTypewriter(): void {
+    // Əvvəlki animasiyanı təmizləyirik (əgər varsa)
+    clearTimeout(this.typingTimeout);
+    this.typePhrase(this.phrases[this.phraseIndex]);
+  }
+
+  private typePhrase(phrase: string, charIndex: number = 0): void {
+    // Yazma prosesi
+    if (charIndex < phrase.length) {
+      this.textToDisplay = phrase.substring(0, charIndex + 1);
+      this.typingTimeout = setTimeout(() => {
+        this.typePhrase(phrase, charIndex + 1);
+      }, 120);
+    } else {
+      // Yazıb bitirdikdən sonra silməyə başla
+      this.typingTimeout = setTimeout(() => {
+        this.deletePhrase(phrase, phrase.length);
+      }, 2000); // Gözləmə müddəti
+    }
+  }
+
+  private deletePhrase(phrase: string, charIndex: number): void {
+    // Silmə prosesi
+    if (charIndex > 0) {
+      this.textToDisplay = phrase.substring(0, charIndex - 1);
+      this.typingTimeout = setTimeout(() => {
+        this.deletePhrase(phrase, charIndex - 1);
+      }, 60);
+    } else {
+      // Silib bitirdikdən sonra növbəti sözə keç
+      this.phraseIndex = (this.phraseIndex + 1) % this.phrases.length;
+      this.typingTimeout = setTimeout(() => {
+        this.startTypewriter();
+      }, 500);
+    }
   }
 
   navigateWithEffect(path: string): void {
     this.router.navigate([path]);
   }
 
-  navigateAndCloseMenu(route: string) {
+  navigateAndCloseMenu(route: string): void {
     this.navigateWithEffect(route);
     this.isMobileMenuOpen = false;
 
-    // DÜZƏLİŞ 5: Düymədən fokusu götürən kod
     if (this.menuButton) {
       this.menuButton.nativeElement.blur();
     }
   }
 
-  toggleMobileMenu() {
+  toggleMobileMenu(): void {
     this.isMobileMenuOpen = !this.isMobileMenuOpen;
   }
 
   ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();
+    // Komponent məhv ediləndə timeout-u təmizləyirik
+    clearTimeout(this.typingTimeout);
   }
 }

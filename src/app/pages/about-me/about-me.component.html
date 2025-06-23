@@ -1,5 +1,5 @@
 <div
-  class="min-h-screen text-white flex flex-col items-center justify-center p-4 sm:p-6 md:p-12 backdrop-blur-md"
+  class="min-h-screen text-white flex flex-col items-center justify-center p-4 sm:p-6 md:p-12"
 >
   <button
     (click)="goBackToHome()"
@@ -12,16 +12,16 @@
   <div class="max-w-3xl w-full space-y-6 md:space-y-8 py-8 sm:py-10">
     <section class="text-center animate-me">
       <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-2">
-        I'm <span class="text-yellow-400">{{ name }}</span>
+        I'm <span class="text-yellow-400">{{ aboutData.name }}</span>
       </h1>
       <p
         class="text-lg sm:text-xl md:text-2xl text-gray-300 font-light mb-4 sm:mb-6"
       >
-        {{ title }}
+        {{ aboutData.title }}
       </p>
       <p
         class="text-md sm:text-lg text-gray-200 leading-relaxed max-w-2xl mx-auto"
-        [innerHTML]="introduction"
+        [innerHTML]="aboutData.introduction"
       ></p>
     </section>
 
@@ -29,39 +29,9 @@
       <hr class="border-yellow-500/40 w-1/3 sm:w-1/4 mx-auto my-6 md:my-8" />
       <p
         class="text-md sm:text-lg text-gray-200 leading-relaxed text-center max-w-2xl mx-auto"
-        [innerHTML]="philosophy"
+        [innerHTML]="aboutData.philosophy"
       ></p>
       <hr class="border-yellow-500/40 w-1/3 sm:w-1/4 mx-auto my-6 md:my-8" />
-    </section>
-
-    <section class="animate-me">
-      <h2
-        class="text-2xl sm:text-3xl font-semibold text-center mb-6 sm:mb-8 text-yellow-400"
-      >
-        {{ skillsTitle }}
-      </h2>
-      <div
-        class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4 md:gap-5 text-center"
-      >
-        <div
-          *ngFor="let skill of skills"
-          class="skill-item-animate bg-gray-800/70 p-3 sm:p-4 rounded-xl shadow-lg hover:shadow-yellow-500/30 transform hover:scale-105 transition-all duration-300 flex flex-col items-center justify-center min-h-[100px] sm:min-h-[120px]"
-        >
-          <ng-container *ngIf="skill.icon">
-            <img
-              src="{{ skill.icon }}"
-              alt="{{ skill.name }} icon"
-              class="w-8 h-8 sm:w-10 sm:h-10 mb-2"
-            />
-          </ng-container>
-          <span class="text-sm sm:text-md font-medium text-gray-100">{{
-            skill.name
-          }}</span>
-          <span *ngIf="skill.level" class="text-xs text-gray-400 mt-1">{{
-            skill.level
-          }}</span>
-        </div>
-      </div>
     </section>
 
     <section class="text-center animate-me mt-8 md:mt-12">
@@ -72,16 +42,16 @@
         class="flex flex-col sm:flex-row items-center justify-center space-y-3 sm:space-y-0 sm:space-x-4"
       >
         <a
-          routerLink="{{ callToAction.projectLink }}"
+          [routerLink]="callToAction.projectLink"
           class="w-full sm:w-auto bg-yellow-400 text-gray-900 font-semibold py-2.5 px-6 sm:py-3 sm:px-8 rounded-lg hover:bg-yellow-500 transition-colors duration-300 shadow-md"
         >
-          Layihələrim
+          My Projects
         </a>
         <a
-          routerLink="{{ callToAction.contactLink }}"
+          [routerLink]="callToAction.contactLink"
           class="w-full sm:w-auto border border-yellow-400 text-yellow-400 font-semibold py-2.5 px-6 sm:py-3 sm:px-8 rounded-lg hover:bg-yellow-400 hover:text-gray-900 transition-colors duration-300"
         >
-          Əlaqə
+          Contact Me
         </a>
       </div>
     </section>

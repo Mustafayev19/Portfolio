@@ -27,12 +27,10 @@
         {{ category.name }}
       </h2>
 
-      <div
-        class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-5 md:gap-6 text-center"
-      >
+      <div class="flex flex-wrap justify-center gap-5 md:gap-6">
         @for (skill of category.skills; track skill.name) {
         <div
-          class="skill-card bg-gray-800/60 p-4 rounded-xl shadow-lg hover:shadow-yellow-400/30 transform hover:scale-105 transition-all duration-300 flex flex-col items-center justify-start min-h-[130px] sm:min-h-[150px]"
+          class="skill-card bg-gray-800/60 p-4 rounded-xl shadow-lg hover:shadow-yellow-400/30 transform hover:scale-105 transition-all duration-300 flex flex-col items-center justify-start min-h-[130px] sm:min-h-[150px] w-[140px] sm:w-[150px]"
         >
           @if (skill.icon) {
           <img
@@ -41,18 +39,20 @@
             class="w-10 h-10 sm:w-12 sm:h-12 mb-2.5"
           />
           }
-          <span class="text-md sm:text-lg font-semibold text-gray-100">{{
-            skill.name
-          }}</span>
-          @if (skill.level) {
-          <span class="text-xs sm:text-sm text-yellow-400/80 mt-1">{{
-            skill.level
-          }}</span>
-          } @if (skill.description) {
-          <p class="text-xs text-gray-400 mt-1.5 px-1">
-            {{ skill.description }}
-          </p>
-          }
+          <div class="flex flex-col text-center">
+            <span class="text-md sm:text-lg font-semibold text-gray-100">{{
+              skill.name
+            }}</span>
+            @if (skill.level) {
+            <span class="text-xs sm:text-sm text-yellow-400/80 mt-1">{{
+              skill.level
+            }}</span>
+            } @if (skill.description) {
+            <p class="text-xs text-gray-400 mt-1.5 px-1">
+              {{ skill.description }}
+            </p>
+            }
+          </div>
         </div>
         }
       </div>

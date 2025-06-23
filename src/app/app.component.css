@@ -1,0 +1,23 @@
+#typingText {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  color: #cccccc;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.blinking-cursor {
+  font-weight: 400;
+  color: #facc15; /* yellow-400 */
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  from,
+  to {
+    color: transparent;
+  }
+  50% {
+    color: #facc15;
+  }
+}

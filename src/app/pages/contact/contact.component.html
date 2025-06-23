@@ -1,5 +1,5 @@
 <div
-  class="min-h-screen text-white flex flex-col items-center justify-start p-4 sm:p-6 md:p-12 backdrop-blur-md overflow-y-auto"
+  class="min-h-screen w-full text-white flex items-center justify-center p-4 sm:p-6 bg-neutral-900/60 backdrop-blur-lg overflow-y-auto"
 >
   <button
     (click)="goBackToHome()"
@@ -9,67 +9,130 @@
     <img class="h-7 w-7 sm:h-8 sm:w-8" src="icons/arrow.svg" alt="back arrow" />
   </button>
 
-  <div
-    class="max-w-3xl w-full text-center space-y-8 md:space-y-10 py-10 sm:py-12 px-2"
-  >
-    <section class="animate-me">
+  <div class="max-w-6xl w-full text-center py-10 sm:py-12 px-2 animate-me">
+    <section class="mb-10">
       <h1
-        class="text-3xl sm:text-4xl md:text-5xl font-bold text-yellow-400 mb-6 sm:mb-8"
+        class="text-3xl sm:text-4xl md:text-5xl font-bold text-yellow-400 mb-4"
       >
-        {{ pageTitle }}
+        {{ contactData.pageTitle }}
       </h1>
       <p
-        class="text-md sm:text-lg text-gray-300 leading-relaxed max-w-xl mx-auto"
+        class="text-md sm:text-lg text-gray-300 leading-relaxed max-w-2xl mx-auto"
       >
-        {{ contactIntro }}
+        {{ contactData.contactIntro }}
       </p>
     </section>
 
-    <section class="animate-me">
-      <hr class="border-yellow-500/30 w-1/2 mx-auto my-8 md:my-10" />
-    </section>
-
-    <section class="animate-me">
-      <h2 class="text-2xl sm:text-3xl font-semibold text-gray-100 mb-4">
-        Direct Email
-      </h2>
-      <a
-        href="mailto:{{ emailAddress }}"
-        class="text-yellow-300 hover:text-yellow-200 text-xl sm:text-2xl font-medium transition-colors duration-200 inline-flex items-center group"
-      >
-        <img
-          class="w-6 h-6 mr-2.5 transition-transform duration-300 group-hover:scale-110"
-          src="icons/email.svg"
-          alt="email icon"
-        />
-        {{ emailAddress }}
-      </a>
-    </section>
-
-    @if (socialLinks.length > 0) {
-    <section>
-      <hr class="border-yellow-500/30 w-1/2 mx-auto my-8 md:my-10" />
-      <h2 class="text-2xl sm:text-3xl font-semibold text-gray-100 mb-6">
-        Find me on
-      </h2>
-      <div class="flex justify-center items-center space-x-6 sm:space-x-8">
-        @for (link of socialLinks; track link.name) {
-        <a
-          href="{{ link.url }}"
-          target="_blank"
-          rel="noopener noreferrer"
-          title="{{ link.name }}"
-          class="text-gray-400 hover:text-yellow-400 transition-all duration-300 transform hover:scale-110"
+    <div
+      class="max-w-4xl mx-auto bg-neutral-900/50 backdrop-blur-xl rounded-2xl shadow-2xl border border-neutral-700 p-6 sm:p-8 md:p-10"
+    >
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
+        <div
+          class="flex flex-col justify-center items-center md:items-start text-center md:text-left space-y-8"
         >
-          @if (link.img) {
-          <img src="{{ link.img }}" alt="" />
-          } @else {
-          <span class="text-lg">{{ link.name }}</span>
-          }
-        </a>
-        }
+          <div>
+            <h3 class="text-2xl font-semibold text-yellow-300 mb-3">
+              Get in Touch Directly
+            </h3>
+            <p class="text-gray-300">
+              Aşağıdakı vasitələrlə birbaşa əlaqə saxlaya bilərsiniz:
+            </p>
+          </div>
+
+          <a
+            href="mailto:{{ contactData.emailAddress }}"
+            class="inline-flex items-center group text-lg"
+          >
+            <div
+              class="p-3 rounded-full bg-yellow-400/10 mr-4 border border-yellow-400/20"
+            >
+              <img class="w-7 h-7" src="icons/email.svg" alt="email icon" />
+            </div>
+            <span
+              class="text-gray-200 group-hover:text-yellow-400 transition-colors"
+              >{{ contactData.emailAddress }}</span
+            >
+          </a>
+
+          <div class="w-full">
+            <hr class="border-neutral-700 w-full my-4" />
+            <h3 class="text-2xl font-semibold text-yellow-300 mb-4">
+              Find me on Social Media
+            </h3>
+            <div
+              class="flex justify-center md:justify-start items-center space-x-5"
+            >
+              @for (link of contactData.socialLinks; track link.name) {
+              <a
+                href="{{ link.url }}"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="{{ link.name }}"
+                class="text-gray-300 hover:text-yellow-400 p-2 bg-neutral-800/60 rounded-full border border-neutral-700 transition-all duration-300 transform hover:scale-110 hover:-translate-y-1"
+              >
+                <img [src]="link.icon" [alt]="link.name" class="w-8 h-8" />
+              </a>
+              }
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <form
+            class="space-y-5"
+            action="https://formspree.io/f/xeoklnjj"
+            method="POST"
+          >
+            <div>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Your Name"
+                required
+                class="w-full bg-gray-800/70 border border-gray-700 rounded-lg py-3 px-4 text-white placeholder-gray-500 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent focus:bg-gray-800"
+              />
+            </div>
+            <div>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Your Email"
+                required
+                class="w-full bg-gray-800/70 border border-gray-700 rounded-lg py-3 px-4 text-white placeholder-gray-500 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent focus:bg-gray-800"
+              />
+            </div>
+            <div>
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                placeholder="Subject"
+                required
+                class="w-full bg-gray-800/70 border border-gray-700 rounded-lg py-3 px-4 text-white placeholder-gray-500 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent focus:bg-gray-800"
+              />
+            </div>
+            <div>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Your Message"
+                rows="5"
+                required
+                class="w-full bg-gray-800/70 border border-gray-700 rounded-lg py-3 px-4 text-white placeholder-gray-500 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent focus:bg-gray-800"
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              class="w-full bg-yellow-400 text-gray-900 font-bold py-3 px-8 rounded-lg hover:bg-yellow-300 disabled:bg-gray-600 disabled:text-gray-400 disabled:cursor-not-allowed transition-colors duration-300 shadow-lg hover:shadow-yellow-400/30"
+            >
+              Send Message
+            </button>
+          </form>
+        </div>
       </div>
-    </section>
-    }
+    </div>
   </div>
 </div>
