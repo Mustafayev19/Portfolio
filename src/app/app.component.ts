@@ -109,8 +109,8 @@ export class AppComponent implements OnInit, OnDestroy {
   textToDisplay: string = '';
   private phrases: string[] = [
     'a passionate Full-Stack Developer.',
-    'an Expert Angular Specialist.',
-    'Crafting Backends with Nest.js.',
+    'a highly skilled Angular Developer.',
+    'Building robust APIs with Nest.js.',
     'Developing End-to-End Solutions.',
   ];
   private phraseIndex: number = 0;

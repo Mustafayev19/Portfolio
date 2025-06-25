@@ -1,5 +1,5 @@
 <!-- DÜZƏLİŞ: 'overflow-y-auto' və arxa fon rəngi ən üstdən silindi -->
-<div class="min-h-screen min-w-full">
+<div class="min-h-dvh min-w-full">
   <!-- VİDEO: Bütün ekran ölçüləri üçün artıq görünəndir -->
   <video
     class="fixed top-0 left-0 w-full h-full object-cover -z-20"
@@ -15,16 +15,12 @@
   <!-- DÜZƏLİŞ: Mobil cihazlar üçün olan xüsusi rəngli arxa fon bloku tamamilə silindi -->
 
   <!-- Bütün məzmun bu konteynerin içindədir -->
-  @if (!isHomePage) {
-  <div class="fixed inset-0 w-full h-full backdrop-blur-md -z-10"></div>
-  }
-
   <div class="relative z-10">
     <button
       #menuButton
       (click)="toggleMobileMenu()"
       aria-label="Toggle navigation menu"
-      class="sm:hidden fixed top-4 right-4 z-50 p-3 rounded-full text-neutral-200 bg-neutral-900/60 backdrop-blur-sm border border-white/10 shadow-lg hover:bg-neutral-700/80 focus:outline-none transition-all duration-200"
+      class="sm:hidden fixed top-4 right-4 z-50 p-3 rounded-full text-neutral-200 bg-neutral-900/80 border border-white/10 shadow-lg hover:bg-neutral-700/90 focus:outline-none transition-all duration-200"
     >
       @if (isMobileMenuOpen) {
       <img class="w-10 h-10" src="icons/exit.svg" alt="Exit Menu Icon" /> }
@@ -122,7 +118,7 @@
 
     <div
       [@navbarVisibility]="isHomePage ? 'visible' : 'hiddenLeft'"
-      class="hidden sm:flex fixed top-0 left-0 h-full w-1/4 bg-black/40 z-30 items-center justify-start"
+      class="hidden sm:flex fixed top-0 left-0 h-full w-1/4 bg-black/60 z-30 items-center justify-start"
     >
       <ul
         class="space-y-8 pl-10 2xl:pl-12 text-neutral-200 text-lg xl:text-xl 2xl:text-2xl font-medium w-full"
@@ -167,7 +163,7 @@
     </div>
     <div
       [@navbarVisibility]="isHomePage ? 'visible' : 'hiddenRight'"
-      class="hidden sm:flex fixed top-0 right-0 h-full w-1/4 bg-black/40 z-30 items-center justify-end"
+      class="hidden sm:flex fixed top-0 right-0 h-full w-1/4 bg-black/60 z-30 items-center justify-end"
     >
       <ul
         class="space-y-8 pr-10 2xl:pr-12 text-neutral-200 text-lg xl:text-xl 2xl:text-2xl font-medium text-right w-full"
@@ -208,11 +204,11 @@
       </ul>
     </div>
 
-    <div class="relative min-h-dvh w-full flex items-center justify-center p-4">
+    <div class="relative w-full min-h-dvh">
       @if (isHomePage) {
       <div
         [@homePageContentAnimation]
-        class="flex flex-col items-center text-center"
+        class="absolute inset-0 flex flex-col items-center justify-center p-4 text-center"
       >
         <div class="flex flex-col items-center gap-4 sm:hidden">
           <img
@@ -226,10 +222,6 @@
               Full-Stack Angular Developer
             </h1>
           </div>
-          <p class="text-base text-neutral-300 max-w-sm mt-2">
-            I transform complex problems into elegant and functional web
-            solutions, prioritizing the user experience.
-          </p>
           <a
             (click)="navigateAndCloseMenu('/projects')"
             class="mt-6 flex items-center justify-center gap-3 bg-yellow-400 text-gray-900 font-bold py-3 px-8 rounded-full hover:bg-yellow-300 transition-all duration-300 ease-in-out cursor-pointer"
@@ -252,7 +244,7 @@
             </p>
             <p
               id="typingText"
-              class="text-xl font-medium mt-4 flex justify-center items-center min-h-[28px] xl:text-2xl 2xl:text-3xl"
+              class="text-xl font-medium mt-4 flex justify-start items-center min-h-[28px] w-[480px] pl-20 xl:text-2xl xl:w-[580px] xl:pl-28 2xl:text-3xl 2xl:w-[680px] 2xl:pl-32"
             >
               <span class="mr-1">{{ textToDisplay }}</span>
               <span class="blinking-cursor">|</span>
@@ -260,8 +252,8 @@
           </div>
         </div>
       </div>
-      } @else {
-      <div [@routeWrapperAnimation] class="w-full h-full">
+      } @if (!isHomePage) {
+      <div [@routeWrapperAnimation] class="absolute inset-0 w-full h-full">
         <router-outlet></router-outlet>
       </div>
       }
