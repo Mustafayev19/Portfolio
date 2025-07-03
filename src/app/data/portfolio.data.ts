@@ -198,19 +198,19 @@ export const PROJECTS_DATA: Project[] = [
     description:
       'A book discovery platform that leverages the Google Books API. Users can search for books, view details, read previews, and create personal reading lists.',
     technologies: ['Angular', 'TypeScript', 'Google Books API', 'Tailwind CSS'],
-    imageUrl: 'https://placehold.co/600x400/0f172a/facc15?text=Booktime',
-    liveUrl: '#',
+    imageUrl: 'images/booktime.png',
+    liveUrl: 'https://mustafayev-booktime.netlify.app/',
     repoUrl: '#',
   },
   {
     id: 4,
-    name: 'FoodRecipe Finder',
+    name: 'FoodRecipe ',
     year: '2023',
     description:
       'A recipe searching application built using the Spoonacular API, offering users access to thousands of recipes with advanced filtering options.',
     technologies: ['Angular', 'TypeScript', 'Spoonacular API', 'RxJS'],
-    imageUrl: 'https://placehold.co/600x400/0f172a/facc15?text=FoodRecipe',
-    liveUrl: '#',
+    imageUrl: 'images/foodrecipe.png',
+    liveUrl: 'https://mustafayev-foodrecipe.netlify.app/',
     repoUrl: '#',
   },
   {
@@ -220,8 +220,8 @@ export const PROJECTS_DATA: Project[] = [
     description:
       'An intuitive weather application providing real-time forecasts. Features a clean UI that changes dynamically based on the current weather conditions.',
     technologies: ['Angular', 'TypeScript', 'Weather API', 'Animations'],
-    imageUrl: 'https://placehold.co/600x400/0f172a/facc15?text=WeatherMood',
-    liveUrl: '#',
+    imageUrl: 'images/weathermood.webp',
+    liveUrl: 'https://mustafayev-weathermood.netlify.app/',
     repoUrl: '#',
   },
   {
@@ -231,7 +231,7 @@ export const PROJECTS_DATA: Project[] = [
     description:
       'The very portfolio you are Browse now. Designed and built from scratch to showcase my skills in modern web development, with a focus on performance and aesthetics.',
     technologies: ['Angular', 'TypeScript', 'Tailwind CSS', 'Formspree'],
-    imageUrl: 'https://placehold.co/600x400/0f172a/facc15?text=My+Portfolio',
+    imageUrl: 'images/portfolio.png',
     liveUrl: '',
     repoUrl: '#',
   },

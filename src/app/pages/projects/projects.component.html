@@ -28,15 +28,16 @@
         <div
           class="project-card bg-gray-800/70 rounded-xl shadow-xl overflow-hidden flex flex-col group hover:shadow-yellow-400/20 transform hover:-translate-y-2 transition-all duration-300"
         >
-          @if (project.imageUrl) {
-          <div class="w-full h-56 sm:h-64 xl:h-72 overflow-hidden">
+          @if (project.imageUrl) { @if (project.imageUrl) { @if
+          (project.imageUrl) { @if (project.imageUrl) {
+          <div class="w-full overflow-hidden p-3 sm:p-4 bg-black/20 rounded-md">
             <img
               [src]="project.imageUrl"
               [alt]="project.name + ' preview'"
-              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              class="w-full h-auto object-contain rounded-sm transition-transform duration-500 group-hover:scale-110"
             />
           </div>
-          } @else {
+          } } } } @else {
           <div
             class="w-full h-56 sm:h-64 xl:h-72 bg-gray-700/50 flex items-center justify-center"
           >

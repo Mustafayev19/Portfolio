@@ -16,11 +16,12 @@ import {
   animate,
   keyframes,
 } from '@angular/animations';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, CommonModule],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   animations: [
@@ -104,6 +105,9 @@ export class AppComponent implements OnInit, OnDestroy {
   isHomePage = true;
   isMobileMenuOpen: boolean = false;
   private destroy$ = new Subject<void>();
+  @ViewChild('mainContainer') mainContainer!: ElementRef<HTMLDivElement>;
+  lightX = 0;
+  lightY = 0;
 
   // Animasiya dəyişənləri
   textToDisplay: string = '';
