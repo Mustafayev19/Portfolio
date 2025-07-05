@@ -14,18 +14,15 @@ import { DataService } from '../../data.service';
   styleUrls: ['./contact.component.css'],
 })
 export class ContactComponent {
-  // Servisləri inject edirik
   private dataService = inject(DataService);
   private fb = inject(FormBuilder);
   private http = inject(HttpClient);
+  private router = inject(Router); // Router-i burada inject edirik
 
-  // Məlumatları servisdən alırıq
   contactData = this.dataService.getContactData();
-
   private formspreeEndpoint = 'https://formspree.io/f/xeoklnjj';
-
   submissionStatus: 'idle' | 'submitting' | 'success' | 'error' = 'idle';
-  emailCopied: boolean = false; // Kopyalama statusu üçün
+  emailCopied: boolean = false;
 
   contactForm = this.fb.group({
     name: ['', Validators.required],
@@ -34,7 +31,6 @@ export class ContactComponent {
     message: ['', Validators.required],
   });
 
-  // Validasiya mesajları üçün getter'lər
   get name() {
     return this.contactForm.get('name');
   }
@@ -48,11 +44,11 @@ export class ContactComponent {
     return this.contactForm.get('message');
   }
 
-  constructor(private router: Router) {}
+  // constructor-u sildik, çünki router artıq yuxarıda inject olunur
 
   onSubmit(): void {
     if (this.contactForm.invalid) {
-      this.contactForm.markAllAsTouched(); // Bütün xanaları "toxunulmuş" kimi işarələ
+      this.contactForm.markAllAsTouched();
       return;
     }
 
@@ -66,7 +62,7 @@ export class ContactComponent {
       .subscribe({
         next: () => {
           this.submissionStatus = 'success';
-          this.contactForm.reset();
+          // Formu burada sıfırlamırıq, istifadəçi düyməyə basanda sıfırlayacağıq
         },
         error: () => {
           this.submissionStatus = 'error';
@@ -74,10 +70,20 @@ export class ContactComponent {
       });
   }
 
-  // Email kopyalandıqda mesaj göstərmək üçün
+  // YENİ METOD: Formu və statusu sıfırlayır
+  resetForm(): void {
+    this.contactForm.reset();
+    this.submissionStatus = 'idle';
+  }
+
   onCopyEmail() {
     this.emailCopied = !this.emailCopied;
+    // Kopyalandıqdan bir müddət sonra ikonu geri qaytarmaq üçün
+    setTimeout(() => {
+      this.emailCopied = false;
+    }, 2000);
   }
+
   goBackToHome() {
     this.router.navigate(['/']);
   }
