@@ -221,7 +221,7 @@ export const PROJECTS_DATA: Project[] = [
 // === RESUME PAGE DATA ===
 export const RESUME_DATA = {
   pageTitle: 'My Resume',
-  downloadPdfUrl: 'assets/Mobil_Mustafayev_Resume.pdf',
+  downloadPdfUrl: 'pdf/Mobil_Mustafayev_Resume.pdf',
   summary: `A highly motivated and self-taught Full-Stack Developer with a proven ability to architect and deliver complex, end-to-end web platforms. Specializing in Angular for dynamic frontends and Nest.js for robust, secure backends. My focus is on writing clean, maintainable code and turning business requirements into functional, user-friendly, and fully responsive solutions for a seamless experience on all devices.`,
   keySkills: [
     'Angular',
