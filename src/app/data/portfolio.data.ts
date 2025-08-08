@@ -184,7 +184,7 @@ export const PROJECTS_DATA: Project[] = [
       'RxJS',
       'Tailwind CSS',
     ],
-    imageUrl: 'images/foodrecipe.png',
+    imageUrl: 'images/foodrecipe.webp',
     liveUrl: 'https://mustafayev-foodrecipe.netlify.app/',
     repoUrl: 'https://github.com/Mustafayev19/FoodRecipe',
   },
@@ -206,7 +206,7 @@ export const PROJECTS_DATA: Project[] = [
     description:
       'A proof-of-concept project demonstrating integration with the Google Books API. This project showcases the fundamental skills required to build a more advanced, full-featured reading list application with user accounts.',
     technologies: ['Angular', 'TypeScript', 'Google Books API'],
-    imageUrl: 'images/booktime.png',
+    imageUrl: 'images/booktime.webp',
     liveUrl: 'https://mustafayev-booktime.netlify.app/',
     repoUrl: 'https://github.com/Mustafayev19/booktime',
   },
@@ -217,7 +217,7 @@ export const PROJECTS_DATA: Project[] = [
     description:
       'The very portfolio you are browsing now. Designed and built from scratch to showcase my skills in modern web development, with a focus on performance, aesthetics, and clean code.',
     technologies: ['Angular', 'TypeScript', 'Tailwind CSS', 'Animations'],
-    imageUrl: 'images/portfolio.png',
+    imageUrl: 'images/portfolio.webp',
     liveUrl: '#',
     repoUrl: 'https://github.com/Mustafayev19/MyPortfolio',
   },
