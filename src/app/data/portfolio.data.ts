@@ -195,7 +195,6 @@ export const PROJECTS_DATA: Project[] = [
     technologies: ['Angular', 'TypeScript', 'Weather API', 'Animations'],
     imageUrl: 'images/weathermood.webp',
     liveUrl: 'https://mustafayev-weathermood.netlify.app/',
-    repoUrl: 'https://github.com/mustafayev19/WeatherMood',
   },
   {
     id: 5,
@@ -206,7 +205,6 @@ export const PROJECTS_DATA: Project[] = [
     technologies: ['Angular', 'TypeScript', 'Google Books API'],
     imageUrl: 'images/booktime.webp',
     liveUrl: 'https://mustafayev-booktime.netlify.app/',
-    repoUrl: 'https://github.com/mustafayev19/booktime',
   },
   {
     id: 6,
