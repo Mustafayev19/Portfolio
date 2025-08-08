@@ -113,7 +113,7 @@ export class AppComponent implements OnInit, OnDestroy {
   textToDisplay: string = '';
   private phrases: string[] = [
     'Building robust APIs with Nest.js.',
-    'Developing scalable End-to-End Solutions.',
+    'Scalable End-to-End Solutions.',
     'Creating dynamic UIs with Angular.',
     'Turning complex ideas into reality.', // Bu cümlə sizin problem həll etmə bacarığınızı vurğulayır
   ];

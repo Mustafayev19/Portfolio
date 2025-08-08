@@ -33,8 +33,7 @@
             class="self-center p-3 mb-5 rounded-lg bg-yellow-400/10 border border-yellow-400/20"
           >
             <svg
-              class="w-10 h-10 sm:w-12 sm:h-12 xl:w-14 xl:h-14"
-              [class]="service.iconClasses || 'text-yellow-400'"
+              class="w-10 h-10 sm:w-12 sm:h-12 xl:w-14 xl:h-14 text-yellow-400"
               fill="none"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -44,15 +43,6 @@
             >
               <path [attr.d]="service.iconSvgPath"></path>
             </svg>
-          </div>
-          } @else if (service.iconClasses) {
-          <div
-            class="self-center p-3 mb-5 rounded-lg bg-yellow-400/10 border border-yellow-400/20"
-          >
-            <i
-              class="text-4xl sm:text-5xl xl:text-6xl"
-              [class]="service.iconClasses"
-            ></i>
           </div>
           }
 
@@ -70,6 +60,7 @@
         }
       </div>
     </section>
+
     <section class="text-center mt-12 animate-me">
       <h3
         class="text-xl sm:text-2xl md:text-3xl text-white font-semibold mb-4 drop-shadow-md"

@@ -12,6 +12,7 @@ export interface ServiceItem {
   title: string;
   description: string;
   iconSvgPath?: string;
+  iconClasses?: string; // Düzəliş edildi
 }
 
 export interface Project {
@@ -150,8 +151,7 @@ export const PROJECTS_DATA: Project[] = [
       'Deployment (Railway)',
     ],
     imageUrl: 'images/dugistudio.webp',
-    liveUrl: 'https://www.dugistudio.art',
-    repoUrl: '#',
+    liveUrl: 'https://www.dugistudio.art/',
   },
   {
     id: 2,
@@ -169,12 +169,11 @@ export const PROJECTS_DATA: Project[] = [
     ],
     imageUrl: 'images/carrental.webp',
     liveUrl: 'https://mustafayev-carrental.netlify.app/',
-    repoUrl: '#',
   },
   {
     id: 3,
     name: 'FoodRecipe Discovery',
-    year: '2024',
+    year: '2025',
     description:
       'A functional recipe discovery application using the Spoonacular API. It demonstrates complex API data handling and filtering. While currently a public-facing tool, it has the foundation to be expanded with user accounts and login systems.',
     technologies: [
@@ -186,7 +185,6 @@ export const PROJECTS_DATA: Project[] = [
     ],
     imageUrl: 'images/foodrecipe.webp',
     liveUrl: 'https://mustafayev-foodrecipe.netlify.app/',
-    repoUrl: 'https://github.com/Mustafayev19/FoodRecipe',
   },
   {
     id: 4,
@@ -197,7 +195,7 @@ export const PROJECTS_DATA: Project[] = [
     technologies: ['Angular', 'TypeScript', 'Weather API', 'Animations'],
     imageUrl: 'images/weathermood.webp',
     liveUrl: 'https://mustafayev-weathermood.netlify.app/',
-    repoUrl: 'https://github.com/Mustafayev19/WeatherMood',
+    repoUrl: 'https://github.com/mustafayev19/WeatherMood',
   },
   {
     id: 5,
@@ -208,7 +206,7 @@ export const PROJECTS_DATA: Project[] = [
     technologies: ['Angular', 'TypeScript', 'Google Books API'],
     imageUrl: 'images/booktime.webp',
     liveUrl: 'https://mustafayev-booktime.netlify.app/',
-    repoUrl: 'https://github.com/Mustafayev19/booktime',
+    repoUrl: 'https://github.com/mustafayev19/booktime',
   },
   {
     id: 6,
@@ -219,7 +217,6 @@ export const PROJECTS_DATA: Project[] = [
     technologies: ['Angular', 'TypeScript', 'Tailwind CSS', 'Animations'],
     imageUrl: 'images/portfolio.webp',
     liveUrl: '#',
-    repoUrl: 'https://github.com/Mustafayev19/MyPortfolio',
   },
 ];
 

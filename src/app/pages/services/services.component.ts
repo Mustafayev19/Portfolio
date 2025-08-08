@@ -1,22 +1,19 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { DataService } from '../../data.service';
 
 @Component({
   selector: 'app-services',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink], // RouterLink əlavə edildi
   templateUrl: './services.component.html',
   styleUrls: ['./services.component.css'],
 })
 export class ServicesComponent {
-  pageTitle: string = 'Services I Offer';
-  services = inject(DataService).getServices();
-
-  // Məlumatları birbaşa servisdən alırıq
+  pageTitle: string = 'What I Offer';
   private dataService = inject(DataService);
-  aboutData = this.dataService.getAboutData();
+  services = this.dataService.getServices(); // Dəyişənin adı 'services' olmalıdır
 
   constructor(private router: Router) {}
 
