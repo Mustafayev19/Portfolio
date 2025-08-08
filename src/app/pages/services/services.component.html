@@ -1,5 +1,5 @@
 <div
-  class="min-h-screen text-white flex flex-col items-center justify-start p-4 sm:p-6 md:p-12 overflow-y-auto"
+  class="min-h-screen text-white flex flex-col items-center justify-start p-4 sm:p-6 md:p-12"
 >
   <button
     (click)="goBackToHome()"
@@ -69,6 +69,23 @@
         </div>
         }
       </div>
+    </section>
+    <section class="text-center mt-12 animate-me">
+      <h3
+        class="text-xl sm:text-2xl md:text-3xl text-white font-semibold mb-4 drop-shadow-md"
+      >
+        Have a project in mind?
+      </h3>
+      <p class="text-gray-200 mb-6 max-w-2xl mx-auto drop-shadow-sm">
+        If you are looking for a developer who can bring your ideas to life with
+        dedication and modern technology, I'd be excited to hear from you.
+      </p>
+      <a
+        routerLink="/contact"
+        class="inline-block bg-yellow-400 text-gray-900 font-bold py-3 px-8 rounded-lg hover:bg-yellow-300 transition-all duration-300 ease-in-out cursor-pointer text-lg"
+      >
+        Let's Talk
+      </a>
     </section>
   </div>
 </div>

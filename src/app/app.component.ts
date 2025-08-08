@@ -112,10 +112,10 @@ export class AppComponent implements OnInit, OnDestroy {
   // Animasiya dəyişənləri
   textToDisplay: string = '';
   private phrases: string[] = [
-    'a passionate Full-Stack Developer.',
-    'a highly skilled Angular Developer.',
     'Building robust APIs with Nest.js.',
-    'Developing End-to-End Solutions.',
+    'Developing scalable End-to-End Solutions.',
+    'Creating dynamic UIs with Angular.',
+    'Turning complex ideas into reality.', // Bu cümlə sizin problem həll etmə bacarığınızı vurğulayır
   ];
   private phraseIndex: number = 0;
   private typingTimeout: any;

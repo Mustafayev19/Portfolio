@@ -1,5 +1,5 @@
 <div
-  class="min-h-screen text-white flex flex-col items-center justify-start p-4 sm:p-6 md:p-12 overflow-y-auto"
+  class="min-h-screen text-white flex flex-col items-center justify-start p-4 sm:p-6 md:p-12"
 >
   <button
     (click)="goBackToHome()"
@@ -12,6 +12,7 @@
   <div
     class="max-w-4xl w-full xl:max-w-5xl space-y-8 md:space-y-10 py-10 sm:py-12 px-2"
   >
+    <!-- Başlıq və PDF Yükləmə -->
     <section class="text-center animate-me">
       <h1
         class="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold text-yellow-400 mb-4"
@@ -30,6 +31,7 @@
       }
     </section>
 
+    <!-- Professional Summary -->
     <section class="animate-me bg-neutral-800/50 p-6 rounded-2xl shadow-lg">
       <h2
         class="text-2xl sm:text-3xl font-semibold text-yellow-300 mb-4 border-b border-neutral-700 pb-3"
@@ -41,6 +43,7 @@
       </p>
     </section>
 
+    <!-- Key Skills -->
     <section class="animate-me bg-neutral-800/50 p-6 rounded-2xl shadow-lg">
       <h2
         class="text-2xl sm:text-3xl font-semibold text-yellow-300 mb-4 border-b border-neutral-700 pb-3"
@@ -57,11 +60,12 @@
       </div>
     </section>
 
+    <!-- Experience (Projects) -->
     <section class="animate-me bg-neutral-800/50 p-6 rounded-2xl shadow-lg">
       <h2
         class="text-2xl sm:text-3xl font-semibold text-yellow-300 mb-6 border-b border-neutral-700 pb-3"
       >
-        Featured Projects / Experience
+        Experience
       </h2>
       <div class="space-y-8">
         @for (job of resumeData.experience; track job.company; let isLast =
